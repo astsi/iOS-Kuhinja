@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4303E86B39226731B78ACC97 /* Pods_iOS_Kuhinja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5AF0B897AD0D45CE13E0900 /* Pods_iOS_Kuhinja.framework */; };
 		54FC7E58280EC2CF0090B8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC7E57280EC2CF0090B8B0 /* AppDelegate.swift */; };
 		54FC7E5A280EC2CF0090B8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC7E59280EC2CF0090B8B0 /* SceneDelegate.swift */; };
 		54FC7E5F280EC2CF0090B8B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54FC7E5D280EC2CF0090B8B0 /* Main.storyboard */; };
@@ -59,6 +60,9 @@
 		54FC7E92280ECB6C0090B8B0 /* ToBuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBuyViewController.swift; sourceTree = "<group>"; };
 		54FC7E94280ED9190090B8B0 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		54FC7E96280ED93B0090B8B0 /* ViewRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRecipeViewController.swift; sourceTree = "<group>"; };
+		7E98DF9ECDC4CB36F093BAF8 /* Pods-iOS-Kuhinja.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Kuhinja.release.xcconfig"; path = "Target Support Files/Pods-iOS-Kuhinja/Pods-iOS-Kuhinja.release.xcconfig"; sourceTree = "<group>"; };
+		D5AF0B897AD0D45CE13E0900 /* Pods_iOS_Kuhinja.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Kuhinja.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F82AE11A3644182AF8680041 /* Pods-iOS-Kuhinja.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Kuhinja.debug.xcconfig"; path = "Target Support Files/Pods-iOS-Kuhinja/Pods-iOS-Kuhinja.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4303E86B39226731B78ACC97 /* Pods_iOS_Kuhinja.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +98,8 @@
 				54FC7E6D280EC2D20090B8B0 /* iOS-KuhinjaTests */,
 				54FC7E77280EC2D20090B8B0 /* iOS-KuhinjaUITests */,
 				54FC7E55280EC2CF0090B8B0 /* Products */,
+				91C633CF9B59CF2D9EB097A3 /* Pods */,
+				7D79C6BDFEBFE361D67C211B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +157,24 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		7D79C6BDFEBFE361D67C211B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5AF0B897AD0D45CE13E0900 /* Pods_iOS_Kuhinja.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		91C633CF9B59CF2D9EB097A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F82AE11A3644182AF8680041 /* Pods-iOS-Kuhinja.debug.xcconfig */,
+				7E98DF9ECDC4CB36F093BAF8 /* Pods-iOS-Kuhinja.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -157,9 +182,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54FC7E7E280EC2D20090B8B0 /* Build configuration list for PBXNativeTarget "iOS-Kuhinja" */;
 			buildPhases = (
+				956A013EFFD470BAAA944359 /* [CP] Check Pods Manifest.lock */,
 				54FC7E50280EC2CF0090B8B0 /* Sources */,
 				54FC7E51280EC2CF0090B8B0 /* Frameworks */,
 				54FC7E52280EC2CF0090B8B0 /* Resources */,
+				28EF3836EB077BAA12A04606 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -275,6 +302,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28EF3836EB077BAA12A04606 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS-Kuhinja/Pods-iOS-Kuhinja-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS-Kuhinja/Pods-iOS-Kuhinja-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS-Kuhinja/Pods-iOS-Kuhinja-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		956A013EFFD470BAAA944359 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOS-Kuhinja-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		54FC7E50280EC2CF0090B8B0 /* Sources */ = {
@@ -462,6 +531,7 @@
 		};
 		54FC7E7F280EC2D20090B8B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F82AE11A3644182AF8680041 /* Pods-iOS-Kuhinja.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -490,6 +560,7 @@
 		};
 		54FC7E80280EC2D20090B8B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E98DF9ECDC4CB36F093BAF8 /* Pods-iOS-Kuhinja.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

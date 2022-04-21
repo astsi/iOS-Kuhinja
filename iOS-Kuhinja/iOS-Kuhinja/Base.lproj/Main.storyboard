@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,7 +26,7 @@
                             </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.84362953900000004" green="0.97556561230000005" blue="0.92320168020000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1Zf-g2-E7m" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2fy-LP-m1M"/>
                             <constraint firstItem="1Zf-g2-E7m" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="87" id="7JR-il-wae"/>
@@ -45,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1007" y="68"/>
+            <point key="canvasLocation" x="-635" y="68"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="sj5-Op-Ohf">
@@ -55,6 +56,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="AccentColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="TcH-pZ-smb" kind="relationship" relationship="viewControllers" id="O3p-wH-gfd"/>
@@ -70,7 +72,7 @@
         <scene sceneID="IrL-c0-7rr">
             <objects>
                 <navigationController title="Explore" id="TcH-pZ-smb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explore" id="V7c-Yo-W04"/>
+                    <tabBarItem key="tabBarItem" title="Explore" image="safari" catalog="system" id="V7c-Yo-W04"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="F0v-kW-PXx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -116,7 +118,7 @@
         <scene sceneID="c79-86-pyp">
             <objects>
                 <navigationController title="Recipes" id="O6M-xq-E1L" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recipes" id="rPW-ci-NGK"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" image="fork.knife.circle" catalog="system" id="rPW-ci-NGK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="me0-Cq-Uh1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -133,7 +135,7 @@
         <scene sceneID="PIe-kY-GHs">
             <objects>
                 <navigationController title="To Buy" id="xbP-Kk-M7R" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="To Buy" id="SI1-85-yx7"/>
+                    <tabBarItem key="tabBarItem" title="To Buy" image="checklist" catalog="system" id="SI1-85-yx7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0ik-zV-NLZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -266,6 +268,12 @@
     <color key="tintColor" red="0.0" green="0.50320714710000003" blue="0.2145519853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="Kuhinja" width="500" height="500"/>
+        <image name="checklist" catalog="system" width="128" height="105"/>
+        <image name="fork.knife.circle" catalog="system" width="128" height="121"/>
+        <image name="safari" catalog="system" width="128" height="121"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
