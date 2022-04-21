@@ -274,6 +274,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8wX-0x-X0U">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jmE-fC-mA6" id="uOp-7w-9fr"/>
+                                    <outlet property="delegate" destination="jmE-fC-mA6" id="1iI-1D-UZU"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sAN-z1-u8Y"/>
@@ -296,6 +300,11 @@
                             <color key="tintColor" red="0.018566293639999999" green="0.5109915733" blue="0.2282391191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addItemButton" destination="Oap-1E-oUh" id="nGN-uy-QTq"/>
+                        <outlet property="emptyListView" destination="auN-eB-01B" id="BPD-0E-Y9l"/>
+                        <outlet property="tableView" destination="8wX-0x-X0U" id="CZl-HC-WWF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2SS-5F-lw8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
