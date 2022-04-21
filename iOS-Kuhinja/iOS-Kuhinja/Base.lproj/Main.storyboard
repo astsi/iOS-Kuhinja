@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -55,8 +55,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6FC-cu-DVw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" name="AccentColor"/>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.0" green="0.50320714710000003" blue="0.2145519853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="TcH-pZ-smb" kind="relationship" relationship="viewControllers" id="O3p-wH-gfd"/>
@@ -72,7 +73,9 @@
         <scene sceneID="IrL-c0-7rr">
             <objects>
                 <navigationController title="Explore" id="TcH-pZ-smb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explore" image="safari" catalog="system" id="V7c-Yo-W04"/>
+                    <tabBarItem key="tabBarItem" title="Explore" id="V7c-Yo-W04">
+                        <imageReference key="image" image="safari" catalog="system" symbolScale="medium"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="F0v-kW-PXx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -118,7 +121,9 @@
         <scene sceneID="c79-86-pyp">
             <objects>
                 <navigationController title="Recipes" id="O6M-xq-E1L" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recipes" image="fork.knife.circle" catalog="system" id="rPW-ci-NGK"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" id="rPW-ci-NGK">
+                        <imageReference key="image" image="fork.knife.circle" catalog="system" symbolScale="medium"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="me0-Cq-Uh1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -135,7 +140,9 @@
         <scene sceneID="PIe-kY-GHs">
             <objects>
                 <navigationController title="To Buy" id="xbP-Kk-M7R" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="To Buy" image="checklist" catalog="system" id="SI1-85-yx7"/>
+                    <tabBarItem key="tabBarItem" title="To Buy" id="SI1-85-yx7">
+                        <imageReference key="image" image="checklist" catalog="system" symbolScale="medium"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0ik-zV-NLZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -214,38 +221,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfY-ed-U8N">
-                                <rect key="frame" x="303" y="752" width="61" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="0YC-4e-LiV">
+                                <rect key="frame" x="32" y="128" width="350" height="512"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="output-onlinepngtools" translatesAutoresizingMaskIntoConstraints="NO" id="vJp-N7-o2I">
+                                        <rect key="frame" x="24" y="0.0" width="302" height="425.5"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Groceries" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOR-5x-BxO">
+                                        <rect key="frame" x="104" y="427.5" width="142" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping for ingredients? Write them down!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMR-PJ-Sy5">
+                                        <rect key="frame" x="8" y="458.5" width="334.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzR-k7-RFd">
+                                        <rect key="frame" x="112" y="481" width="126.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Browse Recipes" cornerStyle="capsule"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="BMR-PJ-Sy5" firstAttribute="top" secondItem="NOR-5x-BxO" secondAttribute="bottom" constant="2" id="8TG-Ys-THV"/>
+                                    <constraint firstItem="vJp-N7-o2I" firstAttribute="leading" secondItem="0YC-4e-LiV" secondAttribute="leading" constant="24" id="Xya-b8-LSS"/>
+                                    <constraint firstAttribute="trailing" secondItem="vJp-N7-o2I" secondAttribute="trailing" constant="24" id="eTx-wC-0Wt"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfY-ed-U8N">
+                                <rect key="frame" x="295" y="731" width="31" height="31"/>
                                 <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" cornerStyle="capsule"/>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="output-onlinepngtools" translatesAutoresizingMaskIntoConstraints="NO" id="vJp-N7-o2I">
-                                <rect key="frame" x="46" y="241" width="292" height="218"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Groceries" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOR-5x-BxO">
-                                <rect key="frame" x="99" y="493" width="216" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shopping for ingredients? Write them down!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMR-PJ-Sy5">
-                                <rect key="frame" x="35" y="536" width="344" height="69"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzR-k7-RFd">
-                                <rect key="frame" x="125" y="593" width="164" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Browse Recipes" cornerStyle="capsule"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sAN-z1-u8Y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sAN-z1-u8Y" firstAttribute="trailing" secondItem="MfY-ed-U8N" secondAttribute="trailing" constant="88" id="4NO-Ix-eOh"/>
+                            <constraint firstItem="sAN-z1-u8Y" firstAttribute="bottom" secondItem="MfY-ed-U8N" secondAttribute="bottom" constant="51" id="IgJ-e5-qlT"/>
+                            <constraint firstAttribute="trailing" secondItem="0YC-4e-LiV" secondAttribute="trailing" constant="32" id="Lfm-k0-nGX"/>
+                            <constraint firstItem="0YC-4e-LiV" firstAttribute="top" secondItem="Kuw-cY-R2F" secondAttribute="top" constant="128" id="TcP-hd-7L7"/>
+                            <constraint firstItem="0YC-4e-LiV" firstAttribute="centerX" secondItem="Kuw-cY-R2F" secondAttribute="centerX" id="bnK-Lw-OWi"/>
+                            <constraint firstItem="0YC-4e-LiV" firstAttribute="leading" secondItem="Kuw-cY-R2F" secondAttribute="leading" constant="32" id="fdZ-Pw-XT9"/>
+                            <constraint firstAttribute="bottom" secondItem="0YC-4e-LiV" secondAttribute="bottom" constant="256" id="k0s-ja-JU1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="To Buy" id="Kav-Bg-H76"/>
                     <connections>
@@ -292,9 +313,6 @@
         <image name="output-onlinepngtools" width="1024" height="1024"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="safari" catalog="system" width="128" height="121"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
