@@ -13,10 +13,10 @@ class ToBuyViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyListView: UIView!
     
- //   var itemList : [Item] = []
-    var itemList : [Item] = [Item(name: "Milk", amount: 5, color: .green),
-                             Item(name: "Carrot", amount: 22, color: .purple)]
-    
+    var itemList : [Item] = []
+//    var itemList : [Item] = [Item(name: "Milk", amount: 5, color: .green),
+//                             Item(name: "Carrot", amount: 22, color: .purple)]
+//
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(.init(nibName: "ToBuyCell", bundle: nil), forCellReuseIdentifier: "ToBuyCell")
@@ -49,8 +49,6 @@ extension ToBuyViewController: UITableViewDataSource {
         return cell
         
     }
-    
-    
 }
 
 extension ToBuyViewController: UITableViewDelegate {

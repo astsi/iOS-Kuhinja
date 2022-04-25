@@ -26,13 +26,28 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="CkJ-5M-shT">
-                        <rect key="frame" x="24" y="16" width="189" height="32"/>
+                        <rect key="frame" x="20" y="4" width="189" height="32"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvG-MF-UEe">
-                        <rect key="frame" x="324" y="16" width="60" height="32"/>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHZ-qp-94Q">
+                        <rect key="frame" x="356" y="5" width="31" height="31"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.018566293639999999" green="0.5109915733" blue="0.2282391191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="gray" image="checkmark" catalog="system" cornerStyle="capsule"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpw-Ya-rpp">
+                        <rect key="frame" x="20" y="38" width="27" height="15"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvG-MF-UEe">
+                        <rect key="frame" x="288" y="5" width="60" height="32"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -45,7 +60,6 @@
                     <constraint firstAttribute="bottom" secondItem="CkJ-5M-shT" secondAttribute="bottom" constant="16" id="d6d-9M-hHI"/>
                     <constraint firstItem="1bk-sm-GYA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="h1i-Ku-ma3"/>
                     <constraint firstItem="dvG-MF-UEe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="hFL-wF-vs7"/>
-                    <constraint firstAttribute="trailing" secondItem="dvG-MF-UEe" secondAttribute="trailing" constant="16" id="kCl-gw-rzW"/>
                     <constraint firstItem="CkJ-5M-shT" firstAttribute="leading" secondItem="1bk-sm-GYA" secondAttribute="trailing" constant="16" id="vhh-Mi-ENu"/>
                     <constraint firstItem="CkJ-5M-shT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="xSm-Gn-I27"/>
                 </constraints>
@@ -60,6 +74,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

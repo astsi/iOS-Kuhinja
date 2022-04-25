@@ -9,21 +9,31 @@ import UIKit
 
 class AddItemViewController: UIViewController {
 
+    @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var dateTimeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func didTouchPickDate(_ sender: Any) {
+        
+        //let picker
     }
-    */
+    
+    
+    @IBAction func didTouchPickColor(_ sender: UIButton) {
+     let colorPickerVC = UIColorPickerViewController()
+        colorPickerVC.delegate = self
+        present(colorPickerVC, animated: true)
+    }
+}
 
+extension AddItemViewController: UIColorPickerViewControllerDelegate {
+
+    func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
+        let color = viewController.selectedColor
+        colorView.backgroundColor = color
+    }
 }
