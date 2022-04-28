@@ -10,18 +10,31 @@ import UIKit
 class ToBuyCell: UITableViewCell {
 
     @IBOutlet weak var colorView: UIView!
-    @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var importanceLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
+
+    @IBOutlet weak var checkView: UIView!
+    @IBOutlet weak var checkImage: UIImageView!
+    
+    static let height : CGFloat = 96.0
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        checkView.roundedCorners(radius: 8)
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func didTouchCheckButton(_ sender: UIButton) {
+        checkImage.isHidden.toggle()
     }
     
+}
+
+extension UIView {
+    func roundedCorners(radius: CGFloat) {
+        layer.masksToBounds = true
+        layer.cornerRadius = radius
+    }
 }

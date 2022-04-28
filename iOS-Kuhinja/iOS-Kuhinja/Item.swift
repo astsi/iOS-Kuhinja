@@ -10,11 +10,21 @@ import UIKit
 
 public struct Item {
     
+    var uuid: UUID
     var name: String
     var amount: Int
-//    var date: Date
+    var date: Date
     var color: UIColor
-//    var priority: Bool
+    var priority: Priority
+    var isChecked: Bool = false
+}
+
+public enum Priority : String {
+    case low, medium, high
+    
+    var displayTitle : String {
+        return rawValue.capitalized
+    }
 }
 
 

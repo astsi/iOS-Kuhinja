@@ -213,19 +213,11 @@
         <!--To Buy-->
         <scene sceneID="xH3-qe-Vjw">
             <objects>
-                <viewController id="jmE-fC-mA6" customClass="ToBuyViewController" customModule="iOS_Kuhinja" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="toBuy" id="jmE-fC-mA6" customClass="ToBuyViewController" customModule="iOS_Kuhinja" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kuw-cY-R2F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8wX-0x-X0U">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="jmE-fC-mA6" id="uOp-7w-9fr"/>
-                                    <outlet property="delegate" destination="jmE-fC-mA6" id="1iI-1D-UZU"/>
-                                </connections>
-                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auN-eB-01B">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
@@ -260,6 +252,15 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Browse Recipes" cornerStyle="capsule"/>
                                     </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8wX-0x-X0U">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="jmE-fC-mA6" id="uOp-7w-9fr"/>
+                                            <outlet property="delegate" destination="jmE-fC-mA6" id="1iI-1D-UZU"/>
+                                        </connections>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -277,14 +278,8 @@
                         <viewLayoutGuide key="safeArea" id="1sm-gH-U4f"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8wX-0x-X0U" firstAttribute="centerY" secondItem="auN-eB-01B" secondAttribute="centerY" id="AAY-Ok-NLG"/>
-                            <constraint firstItem="8wX-0x-X0U" firstAttribute="top" secondItem="auN-eB-01B" secondAttribute="top" id="B6g-h7-ov8"/>
-                            <constraint firstItem="8wX-0x-X0U" firstAttribute="trailing" secondItem="auN-eB-01B" secondAttribute="trailing" id="Jip-qZ-5bp"/>
-                            <constraint firstItem="8wX-0x-X0U" firstAttribute="leading" secondItem="auN-eB-01B" secondAttribute="leading" id="THj-fU-LZg"/>
                             <constraint firstItem="auN-eB-01B" firstAttribute="leading" secondItem="1sm-gH-U4f" secondAttribute="leading" id="Uyt-nM-pfW"/>
                             <constraint firstItem="auN-eB-01B" firstAttribute="top" secondItem="1sm-gH-U4f" secondAttribute="top" id="VRB-y1-vFO"/>
-                            <constraint firstItem="8wX-0x-X0U" firstAttribute="centerX" secondItem="auN-eB-01B" secondAttribute="centerX" id="efN-Qu-K0B"/>
-                            <constraint firstItem="8wX-0x-X0U" firstAttribute="bottom" secondItem="auN-eB-01B" secondAttribute="bottom" id="jPq-fO-cnz"/>
                             <constraint firstItem="1sm-gH-U4f" firstAttribute="trailing" secondItem="auN-eB-01B" secondAttribute="trailing" id="rsE-se-rNa"/>
                             <constraint firstItem="1sm-gH-U4f" firstAttribute="bottom" secondItem="auN-eB-01B" secondAttribute="bottom" id="sUH-Aa-Pry"/>
                         </constraints>
@@ -293,7 +288,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Oap-1E-oUh">
                             <color key="tintColor" red="0.018566293639999999" green="0.5109915733" blue="0.2282391191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="hqe-uJ-Vqz" kind="show" id="bjw-bX-1oR"/>
+                                <segue destination="hqe-uJ-Vqz" kind="show" identifier="plusNavButtonTouched" id="bjw-bX-1oR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -301,6 +296,7 @@
                         <outlet property="addItemButton" destination="Oap-1E-oUh" id="nGN-uy-QTq"/>
                         <outlet property="emptyListView" destination="auN-eB-01B" id="BPD-0E-Y9l"/>
                         <outlet property="tableView" destination="8wX-0x-X0U" id="CZl-HC-WWF"/>
+                        <segue destination="hqe-uJ-Vqz" kind="show" identifier="editGroceryItem" id="NR1-5o-gqe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2SS-5F-lw8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -323,14 +319,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydd-He-unU">
-                                <rect key="frame" x="65" y="353" width="41" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVs-qe-D9Y">
-                                <rect key="frame" x="65" y="404" width="65" height="21"/>
+                                <rect key="frame" x="53" y="353" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -429,7 +418,7 @@
                                     <segment title="High"/>
                                 </segments>
                                 <connections>
-                                    <action selector="onValueChangedQuantity:" destination="hqe-uJ-Vqz" eventType="valueChanged" id="9NM-27-mls"/>
+                                    <action selector="onChangedImportance:" destination="hqe-uJ-Vqz" eventType="valueChanged" id="AkT-qF-5Bx"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlx-jF-cRd">
@@ -449,15 +438,22 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBx-Ld-G8o">
                                 <rect key="frame" x="112" y="347" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <connections>
                                     <action selector="didTouchPickColor:" destination="hqe-uJ-Vqz" eventType="touchUpInside" id="flB-t5-Ad5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCG-Hc-pN0">
                                 <rect key="frame" x="54" y="153" width="83" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVs-qe-D9Y">
+                                <rect key="frame" x="53" y="422" width="65" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -470,10 +466,14 @@
                     <navigationItem key="navigationItem" title="Grocery Item" id="R9s-lr-8cG">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="DWL-vk-sSs">
                             <color key="tintColor" red="0.0" green="0.50320714710000003" blue="0.2145519853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="didTouchSaveButton:" destination="hqe-uJ-Vqz" id="WWg-Tu-yDF"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="colorButton" destination="BBx-Ld-G8o" id="61C-69-1Jr"/>
+                        <outlet property="datePicker" destination="hSe-Xg-sCf" id="nU7-yY-C7j"/>
                         <outlet property="importanceSegmentControl" destination="EwP-6X-346" id="3U4-ql-Rm3"/>
                         <outlet property="nameTextField" destination="Baf-qP-f5r" id="8Jj-6y-u1H"/>
                         <outlet property="previewColorView" destination="Gel-uT-08c" id="bx7-FD-Q8b"/>
@@ -489,6 +489,9 @@
             <point key="canvasLocation" x="1437.68115942029" y="2137.5"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="NR1-5o-gqe"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50320714710000003" blue="0.2145519853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="Kuhinja" width="500" height="500"/>

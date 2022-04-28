@@ -29,7 +29,7 @@ class SplashViewController: UIViewController {
     func startTimer(){
             
         var timePassed = 1
-        let totalTime = 5
+        let totalTime = 3
         
             Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (Timer) in
                     if timePassed <= totalTime {
