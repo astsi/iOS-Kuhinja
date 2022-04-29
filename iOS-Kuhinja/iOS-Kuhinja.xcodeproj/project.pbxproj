@@ -10,6 +10,7 @@
 		4303E86B39226731B78ACC97 /* Pods_iOS_Kuhinja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5AF0B897AD0D45CE13E0900 /* Pods_iOS_Kuhinja.framework */; };
 		546B1F452811BC27005516CC /* ToBuyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1F432811BC27005516CC /* ToBuyCell.swift */; };
 		546B1F462811BC27005516CC /* ToBuyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546B1F442811BC27005516CC /* ToBuyCell.xib */; };
+		5492A7AB281C30FB00CC685A /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5492A7AA281C30FB00CC685A /* UIView+CornerRadius.swift */; };
 		54AD1C452811B0F900E4FBD4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD1C442811B0F900E4FBD4 /* Item.swift */; };
 		54FC7E58280EC2CF0090B8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC7E57280EC2CF0090B8B0 /* AppDelegate.swift */; };
 		54FC7E5A280EC2CF0090B8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC7E59280EC2CF0090B8B0 /* SceneDelegate.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		546B1F432811BC27005516CC /* ToBuyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBuyCell.swift; sourceTree = "<group>"; };
 		546B1F442811BC27005516CC /* ToBuyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToBuyCell.xib; sourceTree = "<group>"; };
+		5492A7AA281C30FB00CC685A /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 		54AD1C442811B0F900E4FBD4 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		54FC7E54280EC2CF0090B8B0 /* iOS-Kuhinja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Kuhinja.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54FC7E57280EC2CF0090B8B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,22 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
+		5492A7A8281C30A100CC685A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5492A7A9281C30C000CC685A /* UIView */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5492A7A9281C30C000CC685A /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				5492A7AA281C30FB00CC685A /* UIView+CornerRadius.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
 		54FC7E4B280EC2CF0090B8B0 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +158,7 @@
 		54FC7E56280EC2CF0090B8B0 /* iOS-Kuhinja */ = {
 			isa = PBXGroup;
 			children = (
+				5492A7A8281C30A100CC685A /* Extensions */,
 				546B1F472811C66E005516CC /* Delegates */,
 				546B1F422811BBFE005516CC /* Cells */,
 				54FC7E87280EC9E00090B8B0 /* ViewControllers */,
@@ -381,6 +400,7 @@
 				54FC7E58280EC2CF0090B8B0 /* AppDelegate.swift in Sources */,
 				54FC7E97280ED93B0090B8B0 /* ViewRecipeViewController.swift in Sources */,
 				546B1F452811BC27005516CC /* ToBuyCell.swift in Sources */,
+				5492A7AB281C30FB00CC685A /* UIView+CornerRadius.swift in Sources */,
 				54FC7E91280ECB510090B8B0 /* RecipesViewController.swift in Sources */,
 				54FC7E95280ED9190090B8B0 /* AddItemViewController.swift in Sources */,
 				54FC7E93280ECB6C0090B8B0 /* ToBuyViewController.swift in Sources */,

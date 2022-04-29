@@ -25,6 +25,18 @@ public enum Priority : String {
     var displayTitle : String {
         return rawValue.capitalized
     }
+    
+    var displayIndex : Int {
+        
+        switch self {
+        case .low:
+            return 0
+        case .medium:
+            return 1
+        case .high:
+            return 2
+        }
+    }
 }
 
 

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ToBuyCellDelegate: AnyObject {
+    func toBuyCell(_ toBuyCell: ToBuyCell, didChangeCheckedState isChecked: Bool)
+}
+
 class ToBuyCell: UITableViewCell {
 
     @IBOutlet weak var colorView: UIView!
@@ -18,23 +22,23 @@ class ToBuyCell: UITableViewCell {
     @IBOutlet weak var checkView: UIView!
     @IBOutlet weak var checkImage: UIImageView!
     
+    weak var delegate: ToBuyCellDelegate?
+    
     static let height : CGFloat = 96.0
+    
+    //var onCheckHandler: ((Bool) -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         checkView.roundedCorners(radius: 8)
-        // Initialization code
     }
     
     @IBAction func didTouchCheckButton(_ sender: UIButton) {
-        checkImage.isHidden.toggle()
+        delegate?.toBuyCell(self, didChangeCheckedState: !checkImage.isHidden)
+        //onCheckHandler?(!checkImage.isHidden)
     }
     
 }
 
-extension UIView {
-    func roundedCorners(radius: CGFloat) {
-        layer.masksToBounds = true
-        layer.cornerRadius = radius
-    }
-}
+

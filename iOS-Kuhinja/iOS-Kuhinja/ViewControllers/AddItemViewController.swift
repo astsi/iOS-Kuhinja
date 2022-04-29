@@ -33,7 +33,7 @@ class AddItemViewController: UIViewController {
     @IBOutlet weak var previewQuantityLabel: UILabel!
     
     let formatter = DateFormatter()
-    var priority = Priority.low
+    //var priority = Priority.low
     var editedItem : Item?
     weak var delegate : AddItemViewControllerDelegate?
 
@@ -48,27 +48,38 @@ class AddItemViewController: UIViewController {
         nameTextField.becomeFirstResponder()
         nameTextField.delegate = self
         
-        //initial Field Values:
         formatter.dateFormat =  "dd.MM.yyyy. HH:mm"
-        colorButton.tintColor = .systemOrange
-        colorButton.backgroundColor = .systemOrange
         colorButton.roundedCorners(radius: 4)
+        let currentDate = editedItem?.date ?? Date()
+        let currentQuantity = editedItem?.amount ?? 10
         
-        previewColorView.backgroundColor = .systemOrange
-        previewDateLabel.text = formatter.string(from: Date())
-        previewQuantityLabel.text = "x 10"
-        previewImportanceLabel.text = importanceSegmentControl.titleForSegment(at: 0)
+        //initial Field Values:
+        nameTextField.text = editedItem?.name ?? "Apple"
+        importanceSegmentControl.selectedSegmentIndex = editedItem?.priority.displayIndex ?? 0
+        datePicker.date = editedItem?.date ?? Date()
+        colorButton.backgroundColor = editedItem?.color ?? .systemOrange
+        
+        quantitySlider.value = Float(currentQuantity)
+        
+        //ititial Preview Values:
+        previewNameLabel.text = editedItem?.name
+        previewImportanceLabel.text = editedItem?.priority.displayTitle ?? importanceSegmentControl.titleForSegment(at: 0)
+        previewDateLabel.text = formatter.string(from: currentDate)
+        previewColorView.backgroundColor = editedItem?.color ?? .systemOrange
+        previewQuantityLabel.text =  String(currentQuantity)
+        
+        
     }
     
     @IBAction func onChangedImportance(_ sender: UISegmentedControl) {
         let segmentIndex = sender.selectedSegmentIndex
         if segmentIndex == 2 {
             previewImportanceLabel.textColor = .systemRed
-            priority = .high
+            //priority = .high
         }
         else {
             previewImportanceLabel.textColor = .black
-            priority = (segmentIndex == 0) ? .low : .medium
+            //priority = (segmentIndex == 0) ? .low : .medium
         }
         previewImportanceLabel.text = sender.titleForSegment(at: segmentIndex)
     }
@@ -97,34 +108,26 @@ class AddItemViewController: UIViewController {
     
     @IBAction func didTouchSaveButton(_ sender: UIBarButtonItem) {
         
-        //Check if all the fields have values
+        //TODO: Check if all the fields have values
         //Error messages if they dont
         let item = Item(uuid: editedItem?.uuid ?? .init(),
                         name: previewNameLabel.text!,
                         amount: Int (quantitySlider.value),
                         date: datePicker.date,
                         color: previewColorView.backgroundColor ?? .systemGray,
-                        priority: self.priority)
-        
+                        priority: (importanceSegmentControl.selectedSegmentIndex == 0) ? .low : (importanceSegmentControl.selectedSegmentIndex == 1) ? .medium : .high,
+                        isChecked: editedItem?.isChecked ?? false)
+                        
         delegate?.addItemViewController(self, didCreate: item)
         
-//        let toBuyVC = ToBuyViewController()
-//
-//        DispatchQueue.main.async {
-//            toBuyVC.itemList.append(item)
-//            //toBuyVC.tableView.reloadData()
-//        }
-//        navigationController?.popViewController(animated: true)
-//        //performSegue(withIdentifier: "toBuy", sender: self)
     }
     
 }
-//neposredno pre nego sto se otvori novi screen, doda se item u listu iz To Buy View Controlera
 extension AddItemViewController: UIColorPickerViewControllerDelegate {
 
     func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
         let color = viewController.selectedColor
-        colorButton.tintColor = color
+        colorButton.backgroundColor = color
         previewColorView.backgroundColor = color
     }
 }
@@ -140,4 +143,6 @@ extension AddItemViewController: UITextFieldDelegate {
         return true
     }
 }
+
+
 

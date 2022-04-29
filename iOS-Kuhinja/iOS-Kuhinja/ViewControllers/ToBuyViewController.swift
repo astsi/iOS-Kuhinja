@@ -47,9 +47,19 @@ class ToBuyViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if itemList.isEmpty {
             tableView.isHidden = true //TODO: Hide the + bar button
-        } else {
-            //emptyListView.isHidden = true - nema potrebe da se pise, tabela se kreira preko celog ekrana bez obzira na br. item-a u njoj
         }
+    }
+    
+    //todo: move to cell
+    func fillCell(_ cell: ToBuyCell,_ item: Item) {
+        
+        cell.nameLabel.text = item.name
+        cell.colorView.backgroundColor = item.color
+        cell.amountLabel.text = String(item.amount)
+        cell.dateLabel.text = formatter.string(from: item.date)
+        cell.importanceLabel.text = item.priority.displayTitle
+        cell.importanceLabel.textColor = (item.priority == .high) ? .systemRed : .black
+        cell.checkImage.isHidden = !item.isChecked
     }
 }
 
@@ -63,13 +73,13 @@ extension ToBuyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = itemList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToBuyCell", for: indexPath) as! ToBuyCell
-        cell.nameLabel.text = item.name
-        cell.colorView.backgroundColor = item.color
-        cell.amountLabel.text = String(item.amount)
-        cell.dateLabel.text = formatter.string(from: item.date)
-        cell.importanceLabel.text = item.priority.displayTitle
-        cell.checkImage.isHidden = !item.isChecked
-        
+        fillCell(cell, item)
+        cell.delegate = self
+//        cell.onCheckHandler = { (isChecked) in
+//            
+//            cell.checkImage.isHidden.toggle()
+//            self.itemList[indexPath.row].isChecked = !isChecked
+//        }
         return cell
         
     }
@@ -90,12 +100,12 @@ extension ToBuyViewController: UITableViewDelegate {
 }
 
 extension ToBuyViewController: AddItemViewControllerDelegate {
+    
     func addItemViewController(_ controller: AddItemViewController, didCreate item: Item) {
         if let index = itemList.firstIndex(where: { listItem in
             listItem.uuid == item.uuid
         }) {
             itemList[index] = item
-            
         } else {
             itemList.append(item)
 
@@ -103,6 +113,19 @@ extension ToBuyViewController: AddItemViewControllerDelegate {
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
+}
+
+extension ToBuyViewController: ToBuyCellDelegate {
+    func toBuyCell(_ toBuyCell: ToBuyCell, didChangeCheckedState isChecked: Bool) {
+
+        if let indexPath = tableView.indexPath(for: toBuyCell){
+            toBuyCell.checkImage.isHidden.toggle()
+
+            itemList[indexPath.row].isChecked = !isChecked
+        }
+            
+    }
+    
     
     
     
