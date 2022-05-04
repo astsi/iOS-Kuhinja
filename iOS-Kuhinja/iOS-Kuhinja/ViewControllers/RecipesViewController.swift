@@ -8,22 +8,66 @@
 import UIKit
 
 class RecipesViewController: UIViewController {
+    
+    @IBOutlet var collectionView: UICollectionView!
+    
+    let recipes : [Recipe] = [Recipe(image: UIImage(named: "pasta")!, name: "Pesto Pasta", timeNeeded: 35),
+                              Recipe(image: UIImage(named: "pasta")!, name: "Carbonara", timeNeeded: 25)]
+}
 
+//MARK: - LifeCycle
+
+extension RecipesViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        let cellIdentifier = "RecipeCell"
+        collectionView.register(RecipeCell.nib(), forCellWithReuseIdentifier: cellIdentifier)
+    }
+}
 
-        // Do any additional setup after loading the view.
+//MARK: - UICollectionView
+
+extension RecipesViewController : UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return recipes.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath) as! RecipeCell
+        cell.configure(image: UIImage(named: "pasta")!, name: recipes[indexPath.row].name, neededTime: recipes[indexPath.row].timeNeeded)
+        
+        return cell
     }
-    */
+}
 
+extension RecipesViewController : UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        performSegue(withIdentifier: "collectionCellTouched", sender: self)
+    }
+}
+
+extension RecipesViewController : UICollectionViewDelegateFlowLayout {
+    
+     //TODO: specify the margin and padding between cells here
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 120, height: 120)
+    }
+}
+
+// MARK: - Navigation
+
+extension RecipesViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "collectionCellTouched", let controller = segue.destination as? ViewRecipeViewController {
+            controller.delegate = self
+        }
+    }
 }

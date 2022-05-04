@@ -24,10 +24,8 @@ class ToBuyCell: UITableViewCell {
     
     weak var delegate: ToBuyCellDelegate?
     
-    static let height : CGFloat = 96.0
-    
-    //var onCheckHandler: ((Bool) -> ())?
-    
+    static let height: CGFloat = 96.0
+       
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -38,7 +36,4 @@ class ToBuyCell: UITableViewCell {
         delegate?.toBuyCell(self, didChangeCheckedState: !checkImage.isHidden)
         //onCheckHandler?(!checkImage.isHidden)
     }
-    
 }
-
-

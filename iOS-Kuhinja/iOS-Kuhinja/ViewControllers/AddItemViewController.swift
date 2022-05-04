@@ -7,7 +7,7 @@
 
 import UIKit
 
-//TODO: Add Constraints, Modify nameTextField, implement Save button action
+//TODO: Add Constraints, Modify nameTextField
 
 protocol AddItemViewControllerDelegate : AnyObject {
     
@@ -33,10 +33,15 @@ class AddItemViewController: UIViewController {
     @IBOutlet weak var previewQuantityLabel: UILabel!
     
     let formatter = DateFormatter()
-    //var priority = Priority.low
     var editedItem : Item?
     weak var delegate : AddItemViewControllerDelegate?
+    
+    
+}
 
+//MARK: - Lifecycle
+extension AddItemViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,7 +63,6 @@ class AddItemViewController: UIViewController {
         importanceSegmentControl.selectedSegmentIndex = editedItem?.priority.displayIndex ?? 0
         datePicker.date = editedItem?.date ?? Date()
         colorButton.backgroundColor = editedItem?.color ?? .systemOrange
-        
         quantitySlider.value = Float(currentQuantity)
         
         //ititial Preview Values:
@@ -70,46 +74,37 @@ class AddItemViewController: UIViewController {
         
         
     }
+}
+
+//MARK: - Actions
+extension AddItemViewController {
     
     @IBAction func onChangedImportance(_ sender: UISegmentedControl) {
         let segmentIndex = sender.selectedSegmentIndex
-        if segmentIndex == 2 {
-            previewImportanceLabel.textColor = .systemRed
-            //priority = .high
-        }
-        else {
-            previewImportanceLabel.textColor = .black
-            //priority = (segmentIndex == 0) ? .low : .medium
-        }
+        previewImportanceLabel.textColor = (segmentIndex == 2) ? .systemRed : .black
         previewImportanceLabel.text = sender.titleForSegment(at: segmentIndex)
     }
     
     @IBAction func didTouchDateTime(_ sender: UIDatePicker) {
-        
         let myString = formatter.string(from: sender.date)
         previewDateLabel.text = myString
     }
     
         
     @IBAction func didTouchPickColor(_ sender: UIButton) {
-        //colorPicker setup:
-        
      let colorPickerVC = UIColorPickerViewController()
         colorPickerVC.delegate = self
         present(colorPickerVC, animated: true)
     }
     
     @IBAction func onChangedQuantity(_ sender: UISlider) {
-        previewQuantityLabel.text = "x "
-        let textValue = String (Int(sender.value))
-        previewQuantityLabel.text?.append(contentsOf: textValue)
+        previewQuantityLabel.text = String (Int(sender.value))
     }
-    
     
     @IBAction func didTouchSaveButton(_ sender: UIBarButtonItem) {
         
-        //TODO: Check if all the fields have values
-        //Error messages if they dont
+        //TODO: Check if all the fields have values, error messages if they don't
+        
         let item = Item(uuid: editedItem?.uuid ?? .init(),
                         name: previewNameLabel.text!,
                         amount: Int (quantitySlider.value),
@@ -117,12 +112,13 @@ class AddItemViewController: UIViewController {
                         color: previewColorView.backgroundColor ?? .systemGray,
                         priority: (importanceSegmentControl.selectedSegmentIndex == 0) ? .low : (importanceSegmentControl.selectedSegmentIndex == 1) ? .medium : .high,
                         isChecked: editedItem?.isChecked ?? false)
-                        
+        
         delegate?.addItemViewController(self, didCreate: item)
         
     }
-    
 }
+
+//MARK: - Delegates
 extension AddItemViewController: UIColorPickerViewControllerDelegate {
 
     func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
@@ -143,6 +139,3 @@ extension AddItemViewController: UITextFieldDelegate {
         return true
     }
 }
-
-
-
