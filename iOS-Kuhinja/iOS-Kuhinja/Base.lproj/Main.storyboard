@@ -18,26 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kuhinja" translatesAutoresizingMaskIntoConstraints="NO" id="1Zf-g2-E7m">
-                                <rect key="frame" x="-43" y="131" width="500" height="500"/>
-                            </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cXl-Xb-nGm">
                                 <rect key="frame" x="20" y="786" width="374" height="4"/>
                                 <color key="tintColor" red="0.0" green="0.50320714710000003" blue="0.2145519853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kuhinja-splash" translatesAutoresizingMaskIntoConstraints="NO" id="1Zf-g2-E7m">
+                                <rect key="frame" x="20" y="171" width="374" height="435"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="geh-XR-uLS"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1Zf-g2-E7m" firstAttribute="centerX" secondItem="geh-XR-uLS" secondAttribute="centerX" id="2fy-LP-m1M"/>
-                            <constraint firstItem="1Zf-g2-E7m" firstAttribute="top" secondItem="geh-XR-uLS" secondAttribute="top" constant="87" id="7JR-il-wae"/>
                             <constraint firstItem="cXl-Xb-nGm" firstAttribute="centerX" secondItem="geh-XR-uLS" secondAttribute="centerX" id="A2a-CX-tKK"/>
                             <constraint firstItem="geh-XR-uLS" firstAttribute="bottom" secondItem="cXl-Xb-nGm" secondAttribute="bottom" constant="72" id="BcI-e5-ZOn"/>
                             <constraint firstItem="geh-XR-uLS" firstAttribute="trailing" secondItem="cXl-Xb-nGm" secondAttribute="trailing" constant="20" id="FrS-Lg-vAa"/>
-                            <constraint firstItem="1Zf-g2-E7m" firstAttribute="leading" secondItem="geh-XR-uLS" secondAttribute="leading" constant="-43" id="eb6-9Y-9JY"/>
-                            <constraint firstItem="cXl-Xb-nGm" firstAttribute="top" secondItem="1Zf-g2-E7m" secondAttribute="bottom" constant="155" id="oOO-wH-CUI"/>
+                            <constraint firstItem="1Zf-g2-E7m" firstAttribute="leading" secondItem="geh-XR-uLS" secondAttribute="leading" constant="20" id="RK6-ju-pdh"/>
+                            <constraint firstItem="1Zf-g2-E7m" firstAttribute="top" secondItem="geh-XR-uLS" secondAttribute="top" constant="127" id="VgS-Da-qbt"/>
+                            <constraint firstItem="geh-XR-uLS" firstAttribute="bottom" secondItem="1Zf-g2-E7m" secondAttribute="bottom" constant="256" id="YFh-2p-BXu"/>
+                            <constraint firstItem="geh-XR-uLS" firstAttribute="trailing" secondItem="1Zf-g2-E7m" secondAttribute="trailing" constant="20" id="aja-qO-Cx8"/>
                             <constraint firstItem="cXl-Xb-nGm" firstAttribute="leading" secondItem="geh-XR-uLS" secondAttribute="leading" constant="20" id="ohc-1o-V1S"/>
-                            <constraint firstItem="geh-XR-uLS" firstAttribute="trailing" secondItem="1Zf-g2-E7m" secondAttribute="trailing" constant="-43" id="vzU-sz-fxP"/>
                         </constraints>
                     </view>
                     <connections>
@@ -47,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-635" y="68"/>
+            <point key="canvasLocation" x="-636.23188405797111" y="67.633928571428569"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="sj5-Op-Ohf">
@@ -661,10 +661,10 @@
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50320714710000003" blue="0.2145519853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
-        <image name="Kuhinja" width="500" height="500"/>
         <image name="checklist" catalog="system" width="128" height="105"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="fork.knife.circle" catalog="system" width="128" height="121"/>
+        <image name="kuhinja-splash" width="1024" height="1024"/>
         <image name="output-onlinepngtools" width="1024" height="1024"/>
         <image name="pasta" width="450" height="338"/>
         <image name="safari" catalog="system" width="128" height="121"/>
