@@ -22,6 +22,10 @@ extension RecipesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 204, height: 204)
+        collectionView.collectionViewLayout = layout
+        
         let cellIdentifier = "RecipeCell"
         collectionView.register(RecipeCell.nib(), forCellWithReuseIdentifier: cellIdentifier)
     }
@@ -36,7 +40,6 @@ extension RecipesViewController : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath) as! RecipeCell
         cell.configure(image: UIImage(named: "pasta")!, name: recipes[indexPath.row].name, neededTime: recipes[indexPath.row].timeNeeded)
         
@@ -57,7 +60,7 @@ extension RecipesViewController : UICollectionViewDelegateFlowLayout {
      //TODO: specify the margin and padding between cells here
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 120)
+        return CGSize(width: 204, height: 204)
     }
 }
 

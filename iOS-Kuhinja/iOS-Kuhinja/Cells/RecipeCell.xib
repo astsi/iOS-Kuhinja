@@ -16,36 +16,37 @@
                 <rect key="frame" x="0.0" y="0.0" width="301" height="296"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="127" translatesAutoresizingMaskIntoConstraints="NO" id="jXw-UQ-2wi">
-                        <rect key="frame" x="0.0" y="251.5" width="301" height="20.5"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rap-nf-x6n">
-                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="recipeCell" text="Time Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4m-vh-IGv">
-                                <rect key="frame" x="217.5" y="0.0" width="83.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" showsExpansionTextWhenTruncated="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rap-nf-x6n">
+                        <rect key="frame" x="10" y="255.5" width="211" height="20.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="900" constant="92" id="WeL-yO-BN7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="recipeCell" text="240 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4m-vh-IGv">
+                        <rect key="frame" x="229" y="255" width="62.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pasta" translatesAutoresizingMaskIntoConstraints="NO" id="gUB-dj-TbN">
-                        <rect key="frame" x="0.0" y="0.0" width="301" height="227.5"/>
+                        <rect key="frame" x="10" y="11" width="282" height="236"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="jXw-UQ-2wi" secondAttribute="bottom" constant="24" id="OLn-Mj-uyn"/>
-                <constraint firstItem="jXw-UQ-2wi" firstAttribute="top" secondItem="gUB-dj-TbN" secondAttribute="bottom" constant="24" id="YKP-ah-BUQ"/>
-                <constraint firstItem="jXw-UQ-2wi" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="aJA-yy-Vca"/>
-                <constraint firstItem="gUB-dj-TbN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="e30-Di-4tf"/>
-                <constraint firstItem="gUB-dj-TbN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sgH-6Z-c9g"/>
-                <constraint firstAttribute="trailing" secondItem="gUB-dj-TbN" secondAttribute="trailing" id="vUt-1B-EfZ"/>
+                <constraint firstItem="gUB-dj-TbN" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="10" id="2jE-OY-g3f"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="J4m-vh-IGv" secondAttribute="trailing" constant="9.5" id="3al-I6-gVX"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="gUB-dj-TbN" secondAttribute="top" constant="33" id="5MG-Kg-sYT"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="rap-nf-x6n" secondAttribute="bottom" constant="20" id="CWw-CC-0Wt"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="gUB-dj-TbN" secondAttribute="bottom" constant="49" id="Kkr-9J-vJ2"/>
+                <constraint firstItem="rap-nf-x6n" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="10" id="NtK-oo-MvP"/>
+                <constraint firstItem="gUB-dj-TbN" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" constant="-9" id="bCK-Ex-66T"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="J4m-vh-IGv" secondAttribute="bottom" constant="20.5" id="bfp-TA-K5I"/>
+                <constraint firstItem="J4m-vh-IGv" firstAttribute="leading" relation="lessThanOrEqual" secondItem="rap-nf-x6n" secondAttribute="trailing" constant="8" id="shd-Gi-Fwe"/>
             </constraints>
             <size key="customSize" width="101" height="96"/>
             <connections>
