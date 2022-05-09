@@ -21,10 +21,7 @@ extension SplashViewController {
         super.viewDidLoad()
         
         startTimer()
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5.1) { //TODO: napraviti ekstenziju da obavlja ovu f-ju, sa parametrom self
-            self.performSegue(withIdentifier: "GoToExplore", sender: nil)
-        }
+        navigate(self: self)
     }
 }
 
@@ -45,4 +42,16 @@ extension SplashViewController {
             }
         }
     }
+}
+
+// MARK: - Navigation
+
+extension SplashViewController {
+    
+    func navigate(self: UIViewController) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5.1) {
+            self.performSegue(withIdentifier: K.goToExplore, sender: nil)
+        }
+    }
+    
 }

@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 public struct Recipe {
     
     let image: UIImage

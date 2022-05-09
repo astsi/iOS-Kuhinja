@@ -40,6 +40,6 @@ extension SocialChefCell {
     }
     
     static func nib() -> UINib {
-        return UINib(nibName: "SocialChefCell", bundle: nil)
+        return UINib(nibName: K.commentCell, bundle: nil)
     }
 }

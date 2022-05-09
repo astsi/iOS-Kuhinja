@@ -53,7 +53,7 @@ extension AddItemViewController {
         nameTextField.becomeFirstResponder()
         nameTextField.delegate = self
         
-        formatter.dateFormat =  "dd.MM.yyyy. HH:mm"
+        formatter.dateFormat =  K.dateFormat
         colorButton.roundedCorners(radius: 4)
         let currentDate = editedItem?.date ?? Date()
         let currentQuantity = editedItem?.amount ?? 10

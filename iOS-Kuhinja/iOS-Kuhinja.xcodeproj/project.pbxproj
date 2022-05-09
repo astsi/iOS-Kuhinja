@@ -13,6 +13,7 @@
 		546D38EC2822C32A00799D99 /* SocialChefCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546D38EA2822C32A00799D99 /* SocialChefCell.swift */; };
 		546D38ED2822C32A00799D99 /* SocialChefCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546D38EB2822C32A00799D99 /* SocialChefCell.xib */; };
 		546D38EF2822CC3F00799D99 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546D38EE2822CC3F00799D99 /* Comment.swift */; };
+		547E0256282946B2008046AC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547E0255282946B2008046AC /* Constants.swift */; };
 		5492A7AB281C30FB00CC685A /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5492A7AA281C30FB00CC685A /* UIView+CornerRadius.swift */; };
 		5492A7AE281C338800CC685A /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5492A7AC281C338800CC685A /* RecipeCell.swift */; };
 		5492A7AF281C338800CC685A /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5492A7AD281C338800CC685A /* RecipeCell.xib */; };
@@ -57,6 +58,7 @@
 		546D38EA2822C32A00799D99 /* SocialChefCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialChefCell.swift; sourceTree = "<group>"; };
 		546D38EB2822C32A00799D99 /* SocialChefCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialChefCell.xib; sourceTree = "<group>"; };
 		546D38EE2822CC3F00799D99 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		547E0255282946B2008046AC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5492A7AA281C30FB00CC685A /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 		5492A7AC281C338800CC685A /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		5492A7AD281C338800CC685A /* RecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
@@ -132,6 +134,14 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
+		547E0254282946A3008046AC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				547E0255282946B2008046AC /* Constants.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		5492A7A8281C30A100CC685A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +183,7 @@
 		54FC7E56280EC2CF0090B8B0 /* iOS-Kuhinja */ = {
 			isa = PBXGroup;
 			children = (
+				547E0254282946A3008046AC /* Models */,
 				54FC7E57280EC2CF0090B8B0 /* AppDelegate.swift */,
 				5492A7A8281C30A100CC685A /* Extensions */,
 				546B1F472811C66E005516CC /* Delegates */,
@@ -421,6 +432,7 @@
 				54FC7E58280EC2CF0090B8B0 /* AppDelegate.swift in Sources */,
 				54FC7E97280ED93B0090B8B0 /* ViewRecipeViewController.swift in Sources */,
 				546D38EC2822C32A00799D99 /* SocialChefCell.swift in Sources */,
+				547E0256282946B2008046AC /* Constants.swift in Sources */,
 				546B1F452811BC27005516CC /* ToBuyCell.swift in Sources */,
 				5492A7AB281C30FB00CC685A /* UIView+CornerRadius.swift in Sources */,
 				54FC7E91280ECB510090B8B0 /* RecipesViewController.swift in Sources */,

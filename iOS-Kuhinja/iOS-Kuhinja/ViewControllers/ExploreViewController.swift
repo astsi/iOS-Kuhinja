@@ -22,10 +22,8 @@ extension ExploreViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cellIdentifier = "SocialChefCell"
-        tableView.register(SocialChefCell.nib(), forCellReuseIdentifier: cellIdentifier)
-        
-        imageView.image = UIImage(named: "pasta")
+        tableView.register(SocialChefCell.nib(), forCellReuseIdentifier: K.commentCell)
+        imageView.image = UIImage(named: K.pastaImage)
     }
 }
 
@@ -38,7 +36,7 @@ extension ExploreViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let comment = comments[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SocialChefCell", for: indexPath) as! SocialChefCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.commentCell, for: indexPath) as! SocialChefCell
         cell.config(image: comment.image, comment: comment.comment, timeAgo: comment.timeAge)
         
         return cell

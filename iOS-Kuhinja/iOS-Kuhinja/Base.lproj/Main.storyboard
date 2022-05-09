@@ -28,7 +28,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="geh-XR-uLS"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.99999994039999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cXl-Xb-nGm" firstAttribute="centerX" secondItem="geh-XR-uLS" secondAttribute="centerX" id="A2a-CX-tKK"/>
                             <constraint firstItem="geh-XR-uLS" firstAttribute="bottom" secondItem="cXl-Xb-nGm" secondAttribute="bottom" constant="72" id="BcI-e5-ZOn"/>
@@ -203,6 +203,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <viewLayoutGuide key="safeArea" id="dXz-SY-VM2"/>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -223,7 +224,7 @@
                     <navigationItem key="navigationItem" title="Recipes" id="K0J-9V-ZET"/>
                     <connections>
                         <outlet property="collectionView" destination="hTT-ty-ped" id="UaG-kH-5jf"/>
-                        <segue destination="Kz0-2f-eqz" kind="show" identifier="collectionCellTouched" id="XMQ-dQ-khb"/>
+                        <segue destination="Kz0-2f-eqz" kind="show" identifier="GoToViewRecipe" id="XMQ-dQ-khb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOl-An-dNw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -431,7 +432,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Oap-1E-oUh">
                             <color key="tintColor" red="0.018566293639999999" green="0.5109915733" blue="0.2282391191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="hqe-uJ-Vqz" kind="show" identifier="plusNavButtonTouched" id="bjw-bX-1oR"/>
+                                <segue destination="hqe-uJ-Vqz" kind="show" identifier="GoToAddItem" id="bjw-bX-1oR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -439,7 +440,7 @@
                         <outlet property="addItemButton" destination="Oap-1E-oUh" id="nGN-uy-QTq"/>
                         <outlet property="emptyListView" destination="auN-eB-01B" id="BPD-0E-Y9l"/>
                         <outlet property="tableView" destination="8wX-0x-X0U" id="CZl-HC-WWF"/>
-                        <segue destination="hqe-uJ-Vqz" kind="show" identifier="editGroceryItem" id="NR1-5o-gqe"/>
+                        <segue destination="hqe-uJ-Vqz" kind="show" identifier="GoToEditItem" id="NR1-5o-gqe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2SS-5F-lw8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -658,7 +659,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NR1-5o-gqe"/>
+        <segue reference="bjw-bX-1oR"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50320714710000003" blue="0.2145519853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
@@ -674,6 +675,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

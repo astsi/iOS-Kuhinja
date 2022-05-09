@@ -36,6 +36,6 @@ extension RecipeCell {
     }
     
     static func nib() -> UINib {
-        return UINib(nibName: "RecipeCell", bundle: nil)
+        return UINib(nibName: K.recipeCell, bundle: nil)
     }
 }

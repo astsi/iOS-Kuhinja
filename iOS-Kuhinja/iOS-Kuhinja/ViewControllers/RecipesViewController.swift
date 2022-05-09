@@ -11,8 +11,8 @@ class RecipesViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     
-    let recipes : [Recipe] = [Recipe(image: UIImage(named: "pasta")!, name: "Pesto Pasta", timeNeeded: 35),
-                              Recipe(image: UIImage(named: "pasta")!, name: "Carbonara", timeNeeded: 25)]
+    let recipes : [Recipe] = [Recipe(image: UIImage(named: K.pastaBolognese)!, name: "Bolognese", timeNeeded: 35),
+                              Recipe(image: UIImage(named: K.pastaCarbonara)!, name: "Carbonara", timeNeeded: 25)]
 }
 
 //MARK: - LifeCycle
@@ -26,7 +26,7 @@ extension RecipesViewController {
         layout.itemSize = CGSize(width: 204, height: 204)
         collectionView.collectionViewLayout = layout
         
-        let cellIdentifier = "RecipeCell"
+        let cellIdentifier = K.recipeCell
         collectionView.register(RecipeCell.nib(), forCellWithReuseIdentifier: cellIdentifier)
     }
 }
@@ -40,8 +40,8 @@ extension RecipesViewController : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath) as! RecipeCell
-        cell.configure(image: UIImage(named: "pasta")!, name: recipes[indexPath.row].name, neededTime: recipes[indexPath.row].timeNeeded)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.recipeCell, for: indexPath) as! RecipeCell
+        cell.configure(image: recipes[indexPath.row].image, name: recipes[indexPath.row].name, neededTime: recipes[indexPath.row].timeNeeded)
         
         return cell
     }
@@ -51,7 +51,7 @@ extension RecipesViewController : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        performSegue(withIdentifier: "collectionCellTouched", sender: self)
+        performSegue(withIdentifier: K.goToViewRecipe, sender: self)
     }
 }
 
@@ -69,7 +69,7 @@ extension RecipesViewController : UICollectionViewDelegateFlowLayout {
 extension RecipesViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "collectionCellTouched", let controller = segue.destination as? ViewRecipeViewController {
+        if segue.identifier == K.goToViewRecipe, let controller = segue.destination as? ViewRecipeViewController {
             controller.delegate = self
         }
     }

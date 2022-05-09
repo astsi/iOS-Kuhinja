@@ -49,7 +49,7 @@ extension ToBuyViewController {
     }
     
     func setupTableView() {
-        tableView.register(.init(nibName: "ToBuyCell", bundle: nil), forCellReuseIdentifier: "ToBuyCell")
+        tableView.register(.init(nibName: K.itemCell, bundle: nil), forCellReuseIdentifier: K.itemCell)
     }
     
     func hideTableViewIfNeeded() {
@@ -68,7 +68,7 @@ extension ToBuyViewController {
     }
     
     func setupFormatter() {
-        formatter.dateFormat =  "dd.MM.yyyy. HH:mm"
+        formatter.dateFormat =  K.dateFormat
     }
 }
 
@@ -81,7 +81,7 @@ extension ToBuyViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = itemList[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToBuyCell", for: indexPath) as! ToBuyCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.itemCell, for: indexPath) as! ToBuyCell
         fillCell(cell, item)
         cell.delegate = self
         return cell
@@ -108,7 +108,7 @@ extension ToBuyViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedItem = itemList[indexPath.row]
-        performSegue(withIdentifier: "editGroceryItem", sender: self)
+        performSegue(withIdentifier: K.goToEditItem, sender: self)
     }
 }
 
@@ -145,11 +145,11 @@ extension ToBuyViewController: ToBuyCellDelegate {
 extension ToBuyViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "plusNavButtonTouched", let controller = segue.destination as? AddItemViewController {
+        if segue.identifier == K.goToAddItem, let controller = segue.destination as? AddItemViewController {
             controller.delegate = self
         }
         
-        if segue.identifier == "editGroceryItem", let controller = segue.destination as? AddItemViewController {
+        if segue.identifier == K.goToEditItem, let controller = segue.destination as? AddItemViewController {
             controller.delegate = self
             controller.editedItem = selectedItem
         }
