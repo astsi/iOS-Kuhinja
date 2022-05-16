@@ -15,13 +15,13 @@ class ToBuyViewController: UIViewController {
     
 //    public var itemList : [Item] = []
     
-    private var itemList : [Item] = [
-        Item(uuid: .init() ,name: "Milk", amount: 10, date: Date(), color: .green, priority: .medium),
-        Item(uuid: .init(), name: "Onion", amount: 25, date: Date(), color: .cyan, priority: .high)
+    private var itemList : [ItemToBuy] = [
+        ItemToBuy(uuid: .init() ,name: "Milk", amount: 10, date: Date(), color: .green, priority: 1, isChecked: false),
+        ItemToBuy(uuid: .init(), name: "Onion", amount: 25, date: Date(), color: .cyan, priority: 2, isChecked: false)
     ]
     
     private let formatter = DateFormatter()
-    private var selectedItem : Item?
+    private var selectedItem : ItemToBuy?
 }
 
 // MARK: - Lifecycles
@@ -87,13 +87,13 @@ extension ToBuyViewController: UITableViewDataSource {
         return cell
     }
     
-    func fillCell(_ cell: ToBuyCell,_ item: Item) {
+    func fillCell(_ cell: ToBuyCell,_ item: ItemToBuy) {
         cell.nameLabel.text = item.name
         cell.colorView.backgroundColor = item.color
         cell.amountLabel.text = String(item.amount)
         cell.dateLabel.text = formatter.string(from: item.date)
-        cell.importanceLabel.text = item.priority.displayTitle
-        cell.importanceLabel.textColor = (item.priority == .high) ? .systemRed : .black
+        cell.importanceLabel.text = displayPriorityTitle(priority: item.priority)
+        cell.importanceLabel.textColor = (item.priority == 2) ? .systemRed : .black
         cell.checkImage.isHidden = !item.isChecked
     }
 }
@@ -116,7 +116,7 @@ extension ToBuyViewController: UITableViewDelegate {
 
 extension ToBuyViewController: AddItemViewControllerDelegate {
     
-    func addItemViewController(_ controller: AddItemViewController, didCreate item: Item) {
+    func addItemViewController(_ controller: AddItemViewController, didCreate item: ItemToBuy) {
         if let index = itemList.firstIndex(where: { listItem in
             listItem.uuid == item.uuid
         }) {

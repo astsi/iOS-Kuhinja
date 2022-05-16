@@ -12,7 +12,7 @@ import RealmSwift
 
 protocol AddItemViewControllerDelegate : AnyObject {
     
-    func addItemViewController(_ controller: AddItemViewController, didCreate item: Item)
+    func addItemViewController(_ controller: AddItemViewController, didCreate item: ItemToBuy)
 }
 
 class AddItemViewController: UIViewController {
@@ -34,7 +34,7 @@ class AddItemViewController: UIViewController {
     @IBOutlet weak var previewQuantityLabel: UILabel!
     
     let formatter = DateFormatter()
-    var editedItem : Item?
+    var editedItem : ItemToBuy?
     weak var delegate : AddItemViewControllerDelegate?
     
 }
@@ -61,7 +61,7 @@ extension AddItemViewController {
         //initial Field Values:
         
         nameTextField.text = editedItem?.name ?? "Apple"
-        importanceSegmentControl.selectedSegmentIndex = editedItem?.priority.displayIndex ?? 0
+        importanceSegmentControl.selectedSegmentIndex = editedItem?.priority ?? 0
         datePicker.date = editedItem?.date ?? Date()
         colorButton.backgroundColor = editedItem?.color ?? .systemOrange
         quantitySlider.value = Float(currentQuantity)
@@ -69,7 +69,7 @@ extension AddItemViewController {
         //ititial Preview Values:
         
         previewNameLabel.text = editedItem?.name
-        previewImportanceLabel.text = editedItem?.priority.displayTitle ?? importanceSegmentControl.titleForSegment(at: 0)
+        previewImportanceLabel.text = displayPriorityTitle(priority: editedItem?.priority ?? 0)
         previewDateLabel.text = formatter.string(from: currentDate)
         previewColorView.backgroundColor = editedItem?.color ?? .systemOrange
         previewQuantityLabel.text =  String(currentQuantity)
@@ -107,12 +107,12 @@ extension AddItemViewController {
         
         //TODO: Check if all the fields have values, error messages if they don't
         
-        let item = Item(uuid: editedItem?.uuid ?? .init(),
+        let item = ItemToBuy(uuid: editedItem?.uuid ?? .init(),
                         name: previewNameLabel.text!,
                         amount: Int (quantitySlider.value),
                         date: datePicker.date,
                         color: previewColorView.backgroundColor ?? .systemGray,
-                        priority: (importanceSegmentControl.selectedSegmentIndex == 0) ? .low : (importanceSegmentControl.selectedSegmentIndex == 1) ? .medium : .high,
+                        priority: importanceSegmentControl.selectedSegmentIndex,
                         isChecked: editedItem?.isChecked ?? false)
         
         delegate?.addItemViewController(self, didCreate: item)

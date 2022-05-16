@@ -18,7 +18,8 @@
 		5492A7AE281C338800CC685A /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5492A7AC281C338800CC685A /* RecipeCell.swift */; };
 		5492A7AF281C338800CC685A /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5492A7AD281C338800CC685A /* RecipeCell.xib */; };
 		5492A7B1281C34CA00CC685A /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5492A7B0281C34CA00CC685A /* Recipe.swift */; };
-		54AD1C452811B0F900E4FBD4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD1C442811B0F900E4FBD4 /* Item.swift */; };
+		54AD1C452811B0F900E4FBD4 /* ItemToBuy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD1C442811B0F900E4FBD4 /* ItemToBuy.swift */; };
+		54FC380A28323D54001CBA62 /* UIViewController+PriorityName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC380928323D54001CBA62 /* UIViewController+PriorityName.swift */; };
 		54FC7E58280EC2CF0090B8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC7E57280EC2CF0090B8B0 /* AppDelegate.swift */; };
 		54FC7E5A280EC2CF0090B8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC7E59280EC2CF0090B8B0 /* SceneDelegate.swift */; };
 		54FC7E5F280EC2CF0090B8B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54FC7E5D280EC2CF0090B8B0 /* Main.storyboard */; };
@@ -63,7 +64,8 @@
 		5492A7AC281C338800CC685A /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		5492A7AD281C338800CC685A /* RecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
 		5492A7B0281C34CA00CC685A /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		54AD1C442811B0F900E4FBD4 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		54AD1C442811B0F900E4FBD4 /* ItemToBuy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemToBuy.swift; sourceTree = "<group>"; };
+		54FC380928323D54001CBA62 /* UIViewController+PriorityName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+PriorityName.swift"; sourceTree = "<group>"; };
 		54FC7E54280EC2CF0090B8B0 /* iOS-Kuhinja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Kuhinja.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54FC7E57280EC2CF0090B8B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54FC7E59280EC2CF0090B8B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		5492A7A8281C30A100CC685A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				54FC380828323D01001CBA62 /* UIViewController */,
 				5492A7A9281C30C000CC685A /* UIView */,
 			);
 			path = Extensions;
@@ -156,6 +159,14 @@
 				5492A7AA281C30FB00CC685A /* UIView+CornerRadius.swift */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		54FC380828323D01001CBA62 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				54FC380928323D54001CBA62 /* UIViewController+PriorityName.swift */,
+			);
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
 		54FC7E4B280EC2CF0090B8B0 = {
@@ -189,7 +200,7 @@
 				546B1F472811C66E005516CC /* Delegates */,
 				546B1F422811BBFE005516CC /* Cells */,
 				54FC7E87280EC9E00090B8B0 /* ViewControllers */,
-				54AD1C442811B0F900E4FBD4 /* Item.swift */,
+				54AD1C442811B0F900E4FBD4 /* ItemToBuy.swift */,
 				546D38EE2822CC3F00799D99 /* Comment.swift */,
 				5492A7B0281C34CA00CC685A /* Recipe.swift */,
 				54FC7E5D280EC2CF0090B8B0 /* Main.storyboard */,
@@ -426,7 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54FC7E8F280ECB400090B8B0 /* ExploreViewController.swift in Sources */,
-				54AD1C452811B0F900E4FBD4 /* Item.swift in Sources */,
+				54AD1C452811B0F900E4FBD4 /* ItemToBuy.swift in Sources */,
 				54FC7E89280ECA2D0090B8B0 /* SplashViewController.swift in Sources */,
 				5492A7AE281C338800CC685A /* RecipeCell.swift in Sources */,
 				54FC7E58280EC2CF0090B8B0 /* AppDelegate.swift in Sources */,
@@ -438,6 +449,7 @@
 				54FC7E91280ECB510090B8B0 /* RecipesViewController.swift in Sources */,
 				546D38EF2822CC3F00799D99 /* Comment.swift in Sources */,
 				54FC7E95280ED9190090B8B0 /* AddItemViewController.swift in Sources */,
+				54FC380A28323D54001CBA62 /* UIViewController+PriorityName.swift in Sources */,
 				5492A7B1281C34CA00CC685A /* Recipe.swift in Sources */,
 				54FC7E93280ECB6C0090B8B0 /* ToBuyViewController.swift in Sources */,
 				54FC7E5A280EC2CF0090B8B0 /* SceneDelegate.swift in Sources */,
