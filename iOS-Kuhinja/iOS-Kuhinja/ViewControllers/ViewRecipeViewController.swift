@@ -18,6 +18,7 @@ class ViewRecipeViewController: UIViewController {
     @IBOutlet weak var carbLabel: UILabel!
 
     weak var delegate: UIViewController?
+    var recipe: Recipe?
 }
 
 // MARK: - LifeCycle
@@ -25,6 +26,12 @@ extension ViewRecipeViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let newRecipe = recipe {
+            imageView.image = newRecipe.image
+            nameLabel.text = newRecipe.name
+            
+        }
     }
 }
 

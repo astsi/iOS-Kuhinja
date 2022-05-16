@@ -28,7 +28,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="geh-XR-uLS"/>
-                        <color key="backgroundColor" red="1" green="1" blue="0.99999994039999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cXl-Xb-nGm" firstAttribute="centerX" secondItem="geh-XR-uLS" secondAttribute="centerX" id="A2a-CX-tKK"/>
                             <constraint firstItem="geh-XR-uLS" firstAttribute="bottom" secondItem="cXl-Xb-nGm" secondAttribute="bottom" constant="72" id="BcI-e5-ZOn"/>

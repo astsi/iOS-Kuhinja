@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 //TODO: Add Constraints, Modify nameTextField
 
@@ -36,7 +37,6 @@ class AddItemViewController: UIViewController {
     var editedItem : Item?
     weak var delegate : AddItemViewControllerDelegate?
     
-    
 }
 
 //MARK: - Lifecycle
@@ -59,6 +59,7 @@ extension AddItemViewController {
         let currentQuantity = editedItem?.amount ?? 10
         
         //initial Field Values:
+        
         nameTextField.text = editedItem?.name ?? "Apple"
         importanceSegmentControl.selectedSegmentIndex = editedItem?.priority.displayIndex ?? 0
         datePicker.date = editedItem?.date ?? Date()
@@ -66,6 +67,7 @@ extension AddItemViewController {
         quantitySlider.value = Float(currentQuantity)
         
         //ititial Preview Values:
+        
         previewNameLabel.text = editedItem?.name
         previewImportanceLabel.text = editedItem?.priority.displayTitle ?? importanceSegmentControl.titleForSegment(at: 0)
         previewDateLabel.text = formatter.string(from: currentDate)
@@ -118,6 +120,11 @@ extension AddItemViewController {
     }
 }
 
+//MARK: - Realm
+extension AddItemViewController {
+    
+}
+
 //MARK: - Delegates
 extension AddItemViewController: UIColorPickerViewControllerDelegate {
 
@@ -139,3 +146,5 @@ extension AddItemViewController: UITextFieldDelegate {
         return true
     }
 }
+
+

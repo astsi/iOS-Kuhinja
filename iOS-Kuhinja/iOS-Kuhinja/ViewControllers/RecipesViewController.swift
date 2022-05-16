@@ -13,6 +13,8 @@ class RecipesViewController: UIViewController {
     
     let recipes : [Recipe] = [Recipe(image: UIImage(named: K.pastaBolognese)!, name: "Bolognese", timeNeeded: 35),
                               Recipe(image: UIImage(named: K.pastaCarbonara)!, name: "Carbonara", timeNeeded: 25)]
+    
+    var selectedRecipe:Recipe?
 }
 
 //MARK: - LifeCycle
@@ -51,6 +53,7 @@ extension RecipesViewController : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        selectedRecipe = recipes[indexPath.row]
         performSegue(withIdentifier: K.goToViewRecipe, sender: self)
     }
 }
@@ -71,6 +74,8 @@ extension RecipesViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.goToViewRecipe, let controller = segue.destination as? ViewRecipeViewController {
             controller.delegate = self
+            controller.recipe = selectedRecipe
+            
         }
     }
 }

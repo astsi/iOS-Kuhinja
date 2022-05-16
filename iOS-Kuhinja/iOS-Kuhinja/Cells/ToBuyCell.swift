@@ -23,17 +23,27 @@ class ToBuyCell: UITableViewCell {
     @IBOutlet weak var checkImage: UIImageView!
     
     weak var delegate: ToBuyCellDelegate?
-    
     static let height: CGFloat = 96.0
-       
+}
+
+//MARK: - LifeCycle
+
+extension ToBuyCell {
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         checkView.roundedCorners(radius: 8)
     }
+}
+
+//MARK: - Actions
+
+extension ToBuyCell {
     
     @IBAction func didTouchCheckButton(_ sender: UIButton) {
         delegate?.toBuyCell(self, didChangeCheckedState: !checkImage.isHidden)
-        //onCheckHandler?(!checkImage.isHidden)
     }
 }
+
+

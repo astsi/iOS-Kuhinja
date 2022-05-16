@@ -14,7 +14,7 @@ class SocialChefCell: UITableViewCell {
     @IBOutlet weak var timeAgoLabel: UILabel!
 }
 
-//MARK: LifeCycle
+//MARK: - LifeCycle
 
 extension SocialChefCell {
     
@@ -22,13 +22,9 @@ extension SocialChefCell {
         super.awakeFromNib()
         chefImageView.roundedCorners(radius: 6)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
 }
 
-//MARK: Configuration
+//MARK: Navigation Config
 
 extension SocialChefCell {
     
@@ -41,5 +37,14 @@ extension SocialChefCell {
     
     static func nib() -> UINib {
         return UINib(nibName: K.commentCell, bundle: nil)
+    }
+}
+
+//MARK: Selection
+
+extension SocialChefCell {
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
     }
 }
