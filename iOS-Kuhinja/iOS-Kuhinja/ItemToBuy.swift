@@ -6,47 +6,43 @@
 //
 
 import UIKit
+import RealmSwift
 
+public class ItemToBuy: Object {
+    
+    @objc dynamic var name: String?
+    @objc dynamic var amount: Int
+    @objc dynamic var date: Date
+    var color: UIColor?
+    @objc dynamic var priority: Int
+    @objc dynamic var isChecked: Bool = false
+    
+    @objc dynamic var _id = UUID().uuidString
 
-public class ItemToBuy {
+    override public static func primaryKey() -> String? {
+        return "_id"
+    }
     
-    var uuid: UUID
-    var name: String
-    var amount: Int
-    var date: Date
-    var color: UIColor
-    var priority: Int
-    var isChecked: Bool = false
+    override init() {
+        self.amount = 0
+        self.priority = 0
+        self.date = Date()
+        self.name = ""
+        self.color = .gray
+        super.init()
+    }
     
-    init(uuid: UUID, name: String, amount: Int, date: Date, color: UIColor, priority: Int, isChecked: Bool){
-        self.uuid = uuid
+    init(name: String, amount: Int, date: Date, color: UIColor, priority: Int, isChecked: Bool){
+        
         self.name = name
         self.amount = amount
         self.date = date
         self.color = color
         self.priority = priority
         self.isChecked = isChecked
+        
+        super.init()
     }
 }
-
-//public enum Priority : String {
-//    case low, medium, high
-//
-//    var displayTitle : String {
-//        return rawValue.capitalized
-//    }
-//
-//    var displayIndex : Int {
-//
-//        switch self {
-//        case .low:
-//            return 0
-//        case .medium:
-//            return 1
-//        case .high:
-//            return 2
-//        }
-//    }
-//}
 
 

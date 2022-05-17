@@ -499,7 +499,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Wn0-Ou-B4o">
-                                        <rect key="frame" x="0.0" y="127" width="319.5" height="50"/>
+                                        <rect key="frame" x="0.0" y="127" width="321" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyU-Cu-Ftg">
                                                 <rect key="frame" x="0.0" y="0.0" width="110.5" height="50"/>
@@ -508,7 +508,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="hSe-Xg-sCf">
-                                                <rect key="frame" x="118.5" y="0.0" width="201" height="50"/>
+                                                <rect key="frame" x="118.5" y="0.0" width="202.5" height="50"/>
                                                 <connections>
                                                     <action selector="didTouchDateTime:" destination="hqe-uJ-Vqz" eventType="valueChanged" id="ngh-d2-Fic"/>
                                                 </connections>

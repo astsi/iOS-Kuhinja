@@ -74,7 +74,6 @@ extension AddItemViewController {
         previewColorView.backgroundColor = editedItem?.color ?? .systemOrange
         previewQuantityLabel.text =  String(currentQuantity)
         
-        
     }
 }
 
@@ -107,22 +106,16 @@ extension AddItemViewController {
         
         //TODO: Check if all the fields have values, error messages if they don't
         
-        let item = ItemToBuy(uuid: editedItem?.uuid ?? .init(),
+        let item = ItemToBuy(
                         name: previewNameLabel.text!,
                         amount: Int (quantitySlider.value),
                         date: datePicker.date,
                         color: previewColorView.backgroundColor ?? .systemGray,
                         priority: importanceSegmentControl.selectedSegmentIndex,
                         isChecked: editedItem?.isChecked ?? false)
-        
+                
         delegate?.addItemViewController(self, didCreate: item)
-        
     }
-}
-
-//MARK: - Realm
-extension AddItemViewController {
-    
 }
 
 //MARK: - Delegates

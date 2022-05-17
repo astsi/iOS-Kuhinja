@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RealmSwift
+import SwiftUI
 
 class ToBuyViewController: UIViewController {
 
@@ -15,13 +17,20 @@ class ToBuyViewController: UIViewController {
     
 //    public var itemList : [Item] = []
     
-    private var itemList : [ItemToBuy] = [
-        ItemToBuy(uuid: .init() ,name: "Milk", amount: 10, date: Date(), color: .green, priority: 1, isChecked: false),
-        ItemToBuy(uuid: .init(), name: "Onion", amount: 25, date: Date(), color: .cyan, priority: 2, isChecked: false)
-    ]
+//    private var itemList : [ItemToBuy] = [
+//        ItemToBuy(uuid: .init() ,name: "Milk", amount: 10, date: Date(), color: .green, priority: 1, isChecked: false),
+//        ItemToBuy(uuid: .init(), name: "Onion", amount: 25, date: Date(), color: .cyan, priority: 2, isChecked: false)
+//    ]
+    
+    private var itemList: Results<ItemToBuy>?
+    
+    //private let items:
     
     private let formatter = DateFormatter()
     private var selectedItem : ItemToBuy?
+    
+    //Realm setup:
+    let realm = try! Realm()
 }
 
 // MARK: - Lifecycles
@@ -32,6 +41,9 @@ extension ToBuyViewController {
         super.viewDidLoad()
         setupUI()
         setupActions()
+        readItems()
+        
+        print(realm.configuration.fileURL)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,7 +65,7 @@ extension ToBuyViewController {
     }
     
     func hideTableViewIfNeeded() {
-        if itemList.isEmpty {
+        if itemList == nil {
             tableView.isHidden = true
         }
     }
@@ -76,13 +88,16 @@ extension ToBuyViewController {
 
 extension ToBuyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemList.count
+        return itemList?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = itemList[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: K.itemCell, for: indexPath) as! ToBuyCell
-        fillCell(cell, item)
+        if let item = itemList?[indexPath.row]{
+            fillCell(cell, item)
+        }
+
         cell.delegate = self
         return cell
     }
@@ -96,6 +111,30 @@ extension ToBuyViewController: UITableViewDataSource {
         cell.importanceLabel.textColor = (item.priority == 2) ? .systemRed : .black
         cell.checkImage.isHidden = !item.isChecked
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            if let item = itemList?[indexPath.row] {
+                do {
+                    try realm.write{
+                        realm.delete(item)
+                    }
+                } catch {
+                    print ("Error while deleting data: ", error)
+                }
+            }
+            
+            tableView.endUpdates()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
 }
 
 // MARK: - TableViewDelegate
@@ -107,8 +146,28 @@ extension ToBuyViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedItem = itemList[indexPath.row]
+        selectedItem = itemList![indexPath.row]
+        //ovde pozvati funkciju sa parametrom indexPath.row
         performSegue(withIdentifier: K.goToEditItem, sender: self)
+    }
+}
+
+//MARK: - Realm
+extension ToBuyViewController {
+    
+    func addItem(itemToBuy: ItemToBuy) {
+        
+        do {
+            try realm.write {
+                realm.add(itemToBuy)
+            }
+        } catch {
+            print("Error while adding data: ", error)
+        }
+    }
+    
+    func readItems() {
+        itemList = realm.objects(ItemToBuy.self)
     }
 }
 
@@ -117,14 +176,15 @@ extension ToBuyViewController: UITableViewDelegate {
 extension ToBuyViewController: AddItemViewControllerDelegate {
     
     func addItemViewController(_ controller: AddItemViewController, didCreate item: ItemToBuy) {
-        if let index = itemList.firstIndex(where: { listItem in
-            listItem.uuid == item.uuid
-        }) {
-            itemList[index] = item
-        } else {
-            itemList.append(item)
+        
+        //let results = realm.objects(ItemToBuy.self).filter("name = \(item.name)")
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(item, update: .all)
         }
         
+       
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
@@ -134,8 +194,16 @@ extension ToBuyViewController: ToBuyCellDelegate {
     
     func toBuyCell(_ toBuyCell: ToBuyCell, didChangeCheckedState isChecked: Bool) {
         if let indexPath = tableView.indexPath(for: toBuyCell){
-            toBuyCell.checkImage.isHidden.toggle()
-            itemList[indexPath.row].isChecked = !isChecked
+            if let item = itemList?[indexPath.row] {
+                do {
+                    try realm.write{
+                        item.isChecked = !isChecked
+                        toBuyCell.checkImage.isHidden.toggle()
+                    }
+                } catch {
+                    print("Error while editing item: ", error)
+                }
+            }
         }
     }
 }

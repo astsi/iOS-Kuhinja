@@ -20,6 +20,7 @@
 		5492A7B1281C34CA00CC685A /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5492A7B0281C34CA00CC685A /* Recipe.swift */; };
 		54AD1C452811B0F900E4FBD4 /* ItemToBuy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD1C442811B0F900E4FBD4 /* ItemToBuy.swift */; };
 		54FC380A28323D54001CBA62 /* UIViewController+PriorityName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC380928323D54001CBA62 /* UIViewController+PriorityName.swift */; };
+		54FC380D283279F2001CBA62 /* UIColor+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC380C283279F2001CBA62 /* UIColor+String.swift */; };
 		54FC7E58280EC2CF0090B8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC7E57280EC2CF0090B8B0 /* AppDelegate.swift */; };
 		54FC7E5A280EC2CF0090B8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC7E59280EC2CF0090B8B0 /* SceneDelegate.swift */; };
 		54FC7E5F280EC2CF0090B8B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54FC7E5D280EC2CF0090B8B0 /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		5492A7B0281C34CA00CC685A /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		54AD1C442811B0F900E4FBD4 /* ItemToBuy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemToBuy.swift; sourceTree = "<group>"; };
 		54FC380928323D54001CBA62 /* UIViewController+PriorityName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+PriorityName.swift"; sourceTree = "<group>"; };
+		54FC380C283279F2001CBA62 /* UIColor+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+String.swift"; sourceTree = "<group>"; };
 		54FC7E54280EC2CF0090B8B0 /* iOS-Kuhinja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Kuhinja.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54FC7E57280EC2CF0090B8B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54FC7E59280EC2CF0090B8B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		5492A7A8281C30A100CC685A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				54FC380B283279D9001CBA62 /* UIColor */,
 				54FC380828323D01001CBA62 /* UIViewController */,
 				5492A7A9281C30C000CC685A /* UIView */,
 			);
@@ -167,6 +170,14 @@
 				54FC380928323D54001CBA62 /* UIViewController+PriorityName.swift */,
 			);
 			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		54FC380B283279D9001CBA62 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				54FC380C283279F2001CBA62 /* UIColor+String.swift */,
+			);
+			path = UIColor;
 			sourceTree = "<group>";
 		};
 		54FC7E4B280EC2CF0090B8B0 = {
@@ -438,6 +449,7 @@
 			files = (
 				54FC7E8F280ECB400090B8B0 /* ExploreViewController.swift in Sources */,
 				54AD1C452811B0F900E4FBD4 /* ItemToBuy.swift in Sources */,
+				54FC380D283279F2001CBA62 /* UIColor+String.swift in Sources */,
 				54FC7E89280ECA2D0090B8B0 /* SplashViewController.swift in Sources */,
 				5492A7AE281C338800CC685A /* RecipeCell.swift in Sources */,
 				54FC7E58280EC2CF0090B8B0 /* AppDelegate.swift in Sources */,
