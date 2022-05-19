@@ -104,7 +104,7 @@ extension ToBuyViewController: UITableViewDataSource {
     
     func fillCell(_ cell: ToBuyCell,_ item: ItemToBuy) {
         cell.nameLabel.text = item.name
-        cell.colorView.backgroundColor = item.color
+        cell.colorView.backgroundColor = UIColor(hex: item.hexColor)
         cell.amountLabel.text = String(item.amount)
         cell.dateLabel.text = formatter.string(from: item.date)
         cell.importanceLabel.text = displayPriorityTitle(priority: item.priority)

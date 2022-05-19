@@ -63,7 +63,8 @@ extension RecipesViewController : UICollectionViewDelegateFlowLayout {
      //TODO: specify the margin and padding between cells here
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 204, height: 204)
+        let size = view.bounds.size.width / 2 - 10
+        return CGSize(width: size, height: size)
     }
 }
 

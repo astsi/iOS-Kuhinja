@@ -55,15 +55,18 @@ extension AddItemViewController {
         
         formatter.dateFormat =  K.dateFormat
         colorButton.roundedCorners(radius: 4)
+        colorButton.layer.borderWidth = 2
         let currentDate = editedItem?.date ?? Date()
         let currentQuantity = editedItem?.amount ?? 10
         
         //initial Field Values:
         
+        let colorHex = editedItem?.hexColor ?? "#808080"
+        
         nameTextField.text = editedItem?.name ?? "Apple"
         importanceSegmentControl.selectedSegmentIndex = editedItem?.priority ?? 0
         datePicker.date = editedItem?.date ?? Date()
-        colorButton.backgroundColor = editedItem?.color ?? .systemOrange
+        colorButton.backgroundColor = UIColor(hex: colorHex)
         quantitySlider.value = Float(currentQuantity)
         
         //ititial Preview Values:
@@ -71,7 +74,7 @@ extension AddItemViewController {
         previewNameLabel.text = editedItem?.name
         previewImportanceLabel.text = displayPriorityTitle(priority: editedItem?.priority ?? 0)
         previewDateLabel.text = formatter.string(from: currentDate)
-        previewColorView.backgroundColor = editedItem?.color ?? .systemOrange
+        previewColorView.backgroundColor = UIColor(hex: colorHex)
         previewQuantityLabel.text =  String(currentQuantity)
         
     }
@@ -107,10 +110,10 @@ extension AddItemViewController {
         //TODO: Check if all the fields have values, error messages if they don't
         
         let item = ItemToBuy(
-                        name: previewNameLabel.text!,
+                        name: previewNameLabel.text ?? "Default item",
                         amount: Int (quantitySlider.value),
                         date: datePicker.date,
-                        color: previewColorView.backgroundColor ?? .systemGray,
+                        hexColor: previewColorView.backgroundColor?.toHex() ?? "#808080",
                         priority: importanceSegmentControl.selectedSegmentIndex,
                         isChecked: editedItem?.isChecked ?? false)
                 

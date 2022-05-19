@@ -13,6 +13,13 @@ class ExploreViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let comments = [Comment(image: UIImage(named: "chef")!, comment: "Tasty!", timeAge: 10),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20),
                     Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20)]
 }
 
