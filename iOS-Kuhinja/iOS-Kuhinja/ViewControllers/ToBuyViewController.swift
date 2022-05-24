@@ -14,22 +14,16 @@ class ToBuyViewController: UIViewController {
     @IBOutlet weak var addItemButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyListView: UIView!
-    
-//    public var itemList : [Item] = []
-    
-//    private var itemList : [ItemToBuy] = [
-//        ItemToBuy(uuid: .init() ,name: "Milk", amount: 10, date: Date(), color: .green, priority: 1, isChecked: false),
-//        ItemToBuy(uuid: .init(), name: "Onion", amount: 25, date: Date(), color: .cyan, priority: 2, isChecked: false)
-//    ]
-    
+      
     private var itemList: Results<ItemToBuy>?
     
-    //private let items:
+    //Private items:
     
     private let formatter = DateFormatter()
     private var selectedItem : ItemToBuy?
     
     //Realm setup:
+    
     let realm = try! Realm()
 }
 
@@ -65,8 +59,10 @@ extension ToBuyViewController {
     }
     
     func hideTableViewIfNeeded() {
-        if itemList == nil {
+        if itemList == nil || itemList?.count == 0 {
             tableView.isHidden = true
+        } else {
+            tableView.isHidden = false
         }
     }
 }
@@ -104,7 +100,7 @@ extension ToBuyViewController: UITableViewDataSource {
     
     func fillCell(_ cell: ToBuyCell,_ item: ItemToBuy) {
         cell.nameLabel.text = item.name
-        cell.colorView.backgroundColor = UIColor(hex: item.hexColor)
+        cell.colorView.backgroundColor = UIColor(hexString: item.hexColor)
         cell.amountLabel.text = String(item.amount)
         cell.dateLabel.text = formatter.string(from: item.date)
         cell.importanceLabel.text = displayPriorityTitle(priority: item.priority)
@@ -127,6 +123,8 @@ extension ToBuyViewController: UITableViewDataSource {
                     print ("Error while deleting data: ", error)
                 }
             }
+            
+            hideTableViewIfNeeded()
             
             tableView.endUpdates()
         }
@@ -184,7 +182,6 @@ extension ToBuyViewController: AddItemViewControllerDelegate {
             realm.add(item, update: .all)
         }
         
-       
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }

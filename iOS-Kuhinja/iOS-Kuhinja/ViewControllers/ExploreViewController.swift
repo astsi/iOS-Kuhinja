@@ -12,15 +12,17 @@ class ExploreViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
-    let comments = [Comment(image: UIImage(named: "chef")!, comment: "Tasty!", timeAge: 10),
-                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20),
-                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20),
-                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20),
-                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20),
-                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20),
-                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20),
-                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20),
-                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAge: 20)]
+    var recipeNetworking = RecipeNetworking()
+    
+    let comments = [Comment(image: UIImage(named: "chef")!, comment: "Tasty!", timeAgo: 10),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAgo: 20),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAgo: 20),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAgo: 20),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAgo: 20),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAgo: 20),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAgo: 20),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAgo: 20),
+                    Comment(image: UIImage(named: "chef")!, comment: "Amazing!", timeAgo: 20)]
 }
 
 //MARK: - LifeCycle
@@ -29,8 +31,16 @@ extension ExploreViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        recipeNetworking.delegate = self
+        recipeNetworking.fetchRecipe(mainIngredient: "pizza")
+    
+        
         tableView.register(SocialChefCell.nib(), forCellReuseIdentifier: K.commentCell)
         imageView.image = UIImage(named: K.pastaImage)
+        imageView.roundedCorners(radius: 8)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
 }
 
@@ -44,12 +54,23 @@ extension ExploreViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let comment = comments[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: K.commentCell, for: indexPath) as! SocialChefCell
-        cell.config(image: comment.image, comment: comment.comment, timeAgo: comment.timeAge)
+        cell.config(image: comment.image, comment: comment.comment, timeAgo: comment.timeAgo)
         
         return cell
     }
 }
 
 extension ExploreViewController: UITableViewDelegate {
+    
+}
+
+extension ExploreViewController: RecipeNetworkingDelegate {
+    func didUpdateRecipes(_ recipeNetworking: RecipeNetworking, recipe: RecipeModel) {
+        DispatchQueue.main.async {
+            self.recipeNetworking = recipeNetworking
+            self.imageView.image = recipe.image
+        }
+    }
+    
     
 }

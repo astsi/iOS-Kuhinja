@@ -66,7 +66,7 @@ extension AddItemViewController {
         nameTextField.text = editedItem?.name ?? "Apple"
         importanceSegmentControl.selectedSegmentIndex = editedItem?.priority ?? 0
         datePicker.date = editedItem?.date ?? Date()
-        colorButton.backgroundColor = UIColor(hex: colorHex)
+        colorButton.backgroundColor = UIColor(hexString: colorHex)
         quantitySlider.value = Float(currentQuantity)
         
         //ititial Preview Values:
@@ -74,7 +74,7 @@ extension AddItemViewController {
         previewNameLabel.text = editedItem?.name
         previewImportanceLabel.text = displayPriorityTitle(priority: editedItem?.priority ?? 0)
         previewDateLabel.text = formatter.string(from: currentDate)
-        previewColorView.backgroundColor = UIColor(hex: colorHex)
+        previewColorView.backgroundColor = UIColor(hexString: colorHex)
         previewQuantityLabel.text =  String(currentQuantity)
         
     }
@@ -113,7 +113,7 @@ extension AddItemViewController {
                         name: previewNameLabel.text ?? "Default item",
                         amount: Int (quantitySlider.value),
                         date: datePicker.date,
-                        hexColor: previewColorView.backgroundColor?.toHex() ?? "#808080",
+                        hexColor: previewColorView.backgroundColor?.toHex() ?? "#ffff00",
                         priority: importanceSegmentControl.selectedSegmentIndex,
                         isChecked: editedItem?.isChecked ?? false)
                 

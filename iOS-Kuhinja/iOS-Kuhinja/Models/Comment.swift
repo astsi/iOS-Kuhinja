@@ -12,5 +12,5 @@ public struct Comment {
     
     let image: UIImage
     let comment: String
-    let timeAge: Int
+    let timeAgo: Int
 }

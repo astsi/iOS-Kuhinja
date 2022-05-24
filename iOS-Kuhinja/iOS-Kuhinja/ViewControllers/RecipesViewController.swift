@@ -11,10 +11,10 @@ class RecipesViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     
-    let recipes : [Recipe] = [Recipe(image: UIImage(named: K.pastaBolognese)!, name: "Bolognese", timeNeeded: 35),
-                              Recipe(image: UIImage(named: K.pastaCarbonara)!, name: "Carbonara", timeNeeded: 25)]
+    let recipes : [testRecipe] = [testRecipe(image: UIImage(named: K.pastaBolognese)!, name: "Bolognese", timeNeeded: 35),
+                              testRecipe(image: UIImage(named: K.pastaCarbonara)!, name: "Carbonara", timeNeeded: 25)]
     
-    var selectedRecipe:Recipe?
+    var selectedRecipe:testRecipe?
 }
 
 //MARK: - LifeCycle

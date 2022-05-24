@@ -18,7 +18,7 @@ class ViewRecipeViewController: UIViewController {
     @IBOutlet weak var carbLabel: UILabel!
 
     weak var delegate: UIViewController?
-    var recipe: Recipe?
+    var recipe: testRecipe?
 }
 
 // MARK: - LifeCycle
