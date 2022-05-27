@@ -28,11 +28,10 @@ extension SocialChefCell {
 
 extension SocialChefCell {
     
-    public func config( image: UIImage, comment: String, timeAgo: Int) {
+    public func config( image: UIImage, comment: String, timeAgo: String) {
         chefImageView.image = image
         commentLabel.text = comment
-        timeAgoLabel.text = String(timeAgo)
-        timeAgoLabel.text?.append(" mins ago")
+        timeAgoLabel.text = timeAgo + " mins ago"
     }
     
     static func nib() -> UINib {

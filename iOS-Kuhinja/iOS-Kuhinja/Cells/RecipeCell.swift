@@ -28,7 +28,7 @@ extension RecipeCell {
 
 extension RecipeCell {
     
-    public func configure(image: UIImage, name: String, neededTime: Int) {
+    public func config(image: UIImage, name: String, neededTime: Int) {
         imageView.image = image
         nameLabel.text = name
         timeLabel.text = String(neededTime)

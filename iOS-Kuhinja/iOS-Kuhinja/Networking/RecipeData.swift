@@ -6,6 +6,16 @@
 //
 
 import Foundation
+import UIKit
+
+protocol DisplayRecipe {
+    
+    var name: String { get }
+    var foodImage: String { get }
+    var time: Int { get }
+    var ingredients: [String] { get }
+    var kcal: String { get }
+}
 
 struct RecipeData: Codable {
     
@@ -13,13 +23,39 @@ struct RecipeData: Codable {
 }
 
 struct Hits: Codable {
-    
+
     let recipe: Recipe
 }
-//hits[0].recipe.ingredientLines
+
 struct Recipe: Codable {
 
     let label: String
     let image: String
+    let totalTime: Int
     let ingredientLines: [String]
+    let calories: Double
+}
+
+extension Recipe: DisplayRecipe {
+    var name: String {
+        label
+    }
+    
+    var foodImage: String {
+        image
+    }
+    
+    var time: Int {
+        totalTime
+    }
+    
+    var ingredients: [String] {
+        ingredientLines
+    }
+    
+    var kcal: String {
+        String(format: "%.2f", calories)
+    }
+    
+    
 }

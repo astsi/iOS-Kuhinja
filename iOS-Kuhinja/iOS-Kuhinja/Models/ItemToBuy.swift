@@ -15,23 +15,18 @@ public class ItemToBuy: Object {
     @objc dynamic var date: Date
     @objc dynamic var priority: Int
     @objc dynamic var isChecked: Bool = false
-    @objc dynamic var hexColor: String
-    
-    
+    @objc dynamic var hexColor: String    
     @objc dynamic var _id = UUID().uuidString
 
     override public static func primaryKey() -> String? {
         return "_id"
     }
-    
-    //var color: UIColor?
-    
+        
     override init() {
         self.amount = 0
         self.priority = 0
         self.date = Date()
         self.name = ""
-        //self.color = .gray
         self.hexColor = "#808080"
         super.init()
     }
@@ -42,7 +37,6 @@ public class ItemToBuy: Object {
         self.amount = amount
         self.date = date
         self.hexColor = hexColor
-        //self.color = UIColor(hex: hexColor)
         self.priority = priority
         self.isChecked = isChecked
         

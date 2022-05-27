@@ -11,10 +11,11 @@ class RecipesViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     
-    let recipes : [testRecipe] = [testRecipe(image: UIImage(named: K.pastaBolognese)!, name: "Bolognese", timeNeeded: 35),
-                              testRecipe(image: UIImage(named: K.pastaCarbonara)!, name: "Carbonara", timeNeeded: 25)]
+    var recipeNetworking = RecipeNetworking.shared
+    var recipes: [Recipe] = []
+    var selectedRecipe: Recipe?
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var selectedRecipe:testRecipe?
 }
 
 //MARK: - LifeCycle
@@ -23,11 +24,31 @@ extension RecipesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 204, height: 204)
-        collectionView.collectionViewLayout = layout
         
+        setupNetworking()
+        setupUI()
+        setupTableViewCell()
+    }
+}
+
+//MARK: - Initial setup
+
+extension RecipesViewController {
+    func setupUI() {
+        setupLayout()
+    }
+    
+    func setupNetworking() {
+        recipeNetworking.delegate = self
+        recipeNetworking.fetchRecipes(mainIngredient: "pasta")
+    }
+    
+    func setupLayout() {
+        let layout = UICollectionViewFlowLayout()
+        collectionView.collectionViewLayout = layout
+    }
+    
+    func setupTableViewCell() {
         let cellIdentifier = K.recipeCell
         collectionView.register(RecipeCell.nib(), forCellWithReuseIdentifier: cellIdentifier)
     }
@@ -43,7 +64,7 @@ extension RecipesViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.recipeCell, for: indexPath) as! RecipeCell
-        cell.configure(image: recipes[indexPath.row].image, name: recipes[indexPath.row].name, neededTime: recipes[indexPath.row].timeNeeded)
+        cell.config(image: recipes[indexPath.row].image.loadImage(), name: recipes[indexPath.row].name, neededTime: recipes[indexPath.row].time)
         
         return cell
     }
@@ -59,9 +80,7 @@ extension RecipesViewController : UICollectionViewDelegate {
 }
 
 extension RecipesViewController : UICollectionViewDelegateFlowLayout {
-    
-     //TODO: specify the margin and padding between cells here
-    
+        
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = view.bounds.size.width / 2 - 10
         return CGSize(width: size, height: size)
@@ -76,7 +95,24 @@ extension RecipesViewController {
         if segue.identifier == K.goToViewRecipe, let controller = segue.destination as? ViewRecipeViewController {
             controller.delegate = self
             controller.recipe = selectedRecipe
-            
+        }
+    }
+}
+
+//MARK: - NetworkingDelegate
+
+extension RecipesViewController: RecipeNetworkingDelegate {
+    func didUpdateRecipe(_ recipeNetworking: RecipeNetworking, recipe: Recipe) {
+
+    }
+
+    func didUpdateRecipes(_ recipeNetworking: RecipeNetworking, recipes: [Recipe]) {
+
+        DispatchQueue.main.async {
+            self.recipeNetworking = recipeNetworking
+            self.recipes.append(contentsOf: recipes)
+            self.activityIndicator.stopAnimating()
+            self.collectionView.reloadData()
         }
     }
 }

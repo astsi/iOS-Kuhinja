@@ -14,11 +14,8 @@ class ToBuyViewController: UIViewController {
     @IBOutlet weak var addItemButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyListView: UIView!
-      
+    
     private var itemList: Results<ItemToBuy>?
-    
-    //Private items:
-    
     private let formatter = DateFormatter()
     private var selectedItem : ItemToBuy?
     
@@ -37,7 +34,8 @@ extension ToBuyViewController {
         setupActions()
         readItems()
         
-        print(realm.configuration.fileURL)
+        //Uncomment the next line to find the realm config path
+        //print(realm.configuration.fileURL!)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,11 +91,11 @@ extension ToBuyViewController: UITableViewDataSource {
         if let item = itemList?[indexPath.row]{
             fillCell(cell, item)
         }
-
+        
         cell.delegate = self
         return cell
     }
-    
+        
     func fillCell(_ cell: ToBuyCell,_ item: ItemToBuy) {
         cell.nameLabel.text = item.name
         cell.colorView.backgroundColor = UIColor(hexString: item.hexColor)
@@ -111,7 +109,6 @@ extension ToBuyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
-            
             tableView.deleteRows(at: [indexPath], with: .fade)
             
             if let item = itemList?[indexPath.row] {
@@ -125,7 +122,6 @@ extension ToBuyViewController: UITableViewDataSource {
             }
             
             hideTableViewIfNeeded()
-            
             tableView.endUpdates()
         }
     }
@@ -145,7 +141,6 @@ extension ToBuyViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedItem = itemList![indexPath.row]
-        //ovde pozvati funkciju sa parametrom indexPath.row
         performSegue(withIdentifier: K.goToEditItem, sender: self)
     }
 }
@@ -173,18 +168,43 @@ extension ToBuyViewController {
 
 extension ToBuyViewController: AddItemViewControllerDelegate {
     
-    func addItemViewController(_ controller: AddItemViewController, didCreate item: ItemToBuy) {
-        
-        //let results = realm.objects(ItemToBuy.self).filter("name = \(item.name)")
-        
+    func editItemViewController(_ controller: AddItemViewController, didEdit item: ItemToBuy) {
         let realm = try! Realm()
-        try! realm.write {
-            realm.add(item, update: .all)
+        let objects = realm.objects(ItemToBuy.self).filter { $0._id == item._id}
+        let object = objects[0]
+        
+        do {
+            try realm.write {
+                object.name = item.name
+                object.amount = item.amount
+                object.hexColor = item.hexColor
+                object.date = item.date
+                object.isChecked = item.isChecked
+            }
+        } catch {
+            print ("Error while editing item: ", error)
+        }
+               
+        tableView.reloadData()
+        navigationController?.popViewController(animated: true)
+    
+    }
+    
+    func addItemViewController(_ controller: AddItemViewController, didCreate item: ItemToBuy) {
+        let realm = try! Realm()
+        
+        do {
+            try realm.write {
+                realm.add(item)
+            }
+        } catch {
+            print("Error while adding data: ", error)
         }
         
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
+        
 }
 
 extension ToBuyViewController: ToBuyCellDelegate {

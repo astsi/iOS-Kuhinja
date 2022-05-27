@@ -13,6 +13,7 @@ import RealmSwift
 protocol AddItemViewControllerDelegate : AnyObject {
     
     func addItemViewController(_ controller: AddItemViewController, didCreate item: ItemToBuy)
+    func editItemViewController(_ controller: AddItemViewController, didEdit item: ItemToBuy)
 }
 
 class AddItemViewController: UIViewController {
@@ -44,9 +45,20 @@ extension AddItemViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //nameTextField setup:
-        
+        initialValuesSetup()
+    }
+}
+
+//MARK: UI
+
+extension AddItemViewController {
+    
+    func initialValuesSetup() {
+        initialFieldsSetup()
+        initialFieldValues()
+    }
+    
+    func initialFieldsSetup() {
         nameTextField.returnKeyType = .done
         nameTextField.autocapitalizationType = .words
         nameTextField.autocorrectionType = .no
@@ -56,12 +68,14 @@ extension AddItemViewController {
         formatter.dateFormat =  K.dateFormat
         colorButton.roundedCorners(radius: 4)
         colorButton.layer.borderWidth = 2
-        let currentDate = editedItem?.date ?? Date()
-        let currentQuantity = editedItem?.amount ?? 10
-        
+    }
+    
+    func initialFieldValues() {
         //initial Field Values:
         
         let colorHex = editedItem?.hexColor ?? "#808080"
+        let currentDate = editedItem?.date ?? Date()
+        let currentQuantity = editedItem?.amount ?? 10
         
         nameTextField.text = editedItem?.name ?? "Apple"
         importanceSegmentControl.selectedSegmentIndex = editedItem?.priority ?? 0
@@ -76,7 +90,6 @@ extension AddItemViewController {
         previewDateLabel.text = formatter.string(from: currentDate)
         previewColorView.backgroundColor = UIColor(hexString: colorHex)
         previewQuantityLabel.text =  String(currentQuantity)
-        
     }
 }
 
@@ -94,7 +107,6 @@ extension AddItemViewController {
         previewDateLabel.text = myString
     }
     
-        
     @IBAction func didTouchPickColor(_ sender: UIButton) {
      let colorPickerVC = UIColorPickerViewController()
         colorPickerVC.delegate = self
@@ -106,9 +118,6 @@ extension AddItemViewController {
     }
     
     @IBAction func didTouchSaveButton(_ sender: UIBarButtonItem) {
-        
-        //TODO: Check if all the fields have values, error messages if they don't
-        
         let item = ItemToBuy(
                         name: previewNameLabel.text ?? "Default item",
                         amount: Int (quantitySlider.value),
@@ -116,8 +125,13 @@ extension AddItemViewController {
                         hexColor: previewColorView.backgroundColor?.toHex() ?? "#ffff00",
                         priority: importanceSegmentControl.selectedSegmentIndex,
                         isChecked: editedItem?.isChecked ?? false)
-                
-        delegate?.addItemViewController(self, didCreate: item)
+        
+        if editedItem == nil {
+            delegate?.addItemViewController(self, didCreate: item)
+        }
+        else {
+            delegate?.editItemViewController(self, didEdit: item)
+        }
     }
 }
 

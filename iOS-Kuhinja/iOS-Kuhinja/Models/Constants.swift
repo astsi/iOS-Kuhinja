@@ -14,6 +14,7 @@ public struct K {
     static let recipeCell = "RecipeCell"
     static let itemCell = "ToBuyCell"
     static let commentCell = "SocialChefCell"
+    static let ingredientCell = "IngredientCell"
     
     //MARK: - Segues
     
@@ -22,15 +23,14 @@ public struct K {
     static let goToAddItem = "GoToAddItem"
     static let goToEditItem = "GoToEditItem"
     
-    //MARK: - Images
-    
-    static let chefImage = "chef"
-    static let pastaImage = "pasta"
-    static let pastaCarbonara = "pasta-carbonara"
-    static let pastaBolognese = "pasta-bolognese"
-    
     //MARK: - Formats
     
     static let dateFormat = "dd.MM.yyyy. HH:mm"
+    
+    //MARK: - Recipe Networking
+    
+    static let recipeUrl = "https://api.edamam.com/api/recipes/v2?type=public"
+    static let appId = "912244f4"
+    static let appKey = "8536e16635340655d2ef41b96a0d7b00"
     
 }

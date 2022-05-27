@@ -11,6 +11,6 @@ extension UIViewController {
     
     func displayPriorityTitle(priority: Int) -> String {
     
-        return (priority == 2) ? "high" : (priority == 1) ? "medium" : "low"
+        return (priority == 2) ? "High" : (priority == 1) ? "Medium" : "Low"
     }
 }

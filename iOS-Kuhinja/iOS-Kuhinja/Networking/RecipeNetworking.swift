@@ -8,46 +8,79 @@
 import UIKit
 import Alamofire
 
-protocol RecipeNetworkingDelegate {
-    func didUpdateRecipes(_ recipeNetworking: RecipeNetworking, recipe: RecipeModel)
+protocol RecipeNetworkingDelegate: AnyObject {
+    func didUpdateRecipe(_ recipeNetworking: RecipeNetworking, recipe: Recipe)
+    func didUpdateRecipes(_ recipeNetworking: RecipeNetworking, recipes: [Recipe])
 }
 
-struct RecipeNetworking {
+class RecipeNetworking {
+ 
+    static var shared: RecipeNetworking = RecipeNetworking()
+
+    //MARK: - Networking
     
-    let RecipeUrl = "https://api.edamam.com/api/recipes/v2?type=public"
-    let appId = "912244f4"
-    let appKey = "8536e16635340655d2ef41b96a0d7b00"
+    weak var delegate: RecipeNetworkingDelegate?
     
-    var delegate: RecipeNetworkingDelegate?
-    
-    
-    func fetchRecipe( mainIngredient: String){
-        var url = RecipeUrl
-        url.append(contentsOf: "&app_key=\(appKey)")
-        url.append(contentsOf: "&app_id=\(appId)")
-        url.append(contentsOf: "&q=\(mainIngredient)")
-        url.append(contentsOf: "&random=true&time=1-360")
+    private init(){
         
-        performRequest(url)
     }
     
-    func performRequest(_ urlString: String){
+    func fetchRecipe( mainIngredient: String){
+        let url = createUrlString(mainIngredient)
+        performRequest(url, multipleRecipes: false)
+    }
+    
+    func fetchRecipes( mainIngredient: String) {
+        let url = createUrlString(mainIngredient)
+        performRequest(url, multipleRecipes: true)
+    }
+    
+    func performRequest(_ urlString: String, multipleRecipes: Bool){
         if let url = URL(string: urlString) {
             AF.request(url)
                 .validate()
                 .responseDecodable(of: RecipeData.self) { (response) in
-                    guard let recipe = response.value
+                    guard let recipeItems = response.value
                     else {
                         print("Networking Error")
                         return
                     }
-                    let recipeName = recipe.hits[0].recipe.label
-                    let recipeImage = recipe.hits[0].recipe.image
-                    let recipeModel = RecipeModel(name: recipeName, image: recipeImage.loadImage())
-                    
-                    print(recipe.hits[0].recipe.label)
-                    self.delegate?.didUpdateRecipes(self, recipe: recipeModel)
+                    self.recipeSetup(recipes: recipeItems.hits, multipleRecipes)
                 }
+        }
+    }
+    
+    //MARK: - Helper f-ons
+    
+    func createUrlString(_ mainIngredient: String) -> String{
+        var url = K.recipeUrl
+        url.append(contentsOf: "&app_key=\(K.appKey)")
+        url.append(contentsOf: "&app_id=\(K.appId)")
+        url.append(contentsOf: "&q=\(mainIngredient)")
+        url.append(contentsOf: "&random=true&time=1-360")
+        
+        return url
+    }
+    
+    func recipeSetup(recipes: [Hits],_ multipleRecipes: Bool) {
+        var recipeModel = Recipe(label: recipes[0].recipe.label,
+                                 image: recipes[0].recipe.image,
+                                 totalTime: recipes[0].recipe.totalTime,
+                                 ingredientLines: recipes[0].recipe.ingredientLines,
+                                 calories: recipes[0].recipe.calories)
+        if multipleRecipes {
+            var recipeModels: [Recipe] = []
+            for recipeItem in recipes {
+                recipeModel = Recipe(label: recipeItem.recipe.label,
+                                     image: recipeItem.recipe.image,
+                                     totalTime: recipeItem.recipe.totalTime,
+                                     ingredientLines: recipeItem.recipe.ingredientLines,
+                                     calories: recipeItem.recipe.calories)
+                recipeModels.append(recipeModel)
+            }
+            self.delegate?.didUpdateRecipes(self, recipes: recipeModels)
+        } else {
+            self.delegate?.didUpdateRecipe(self, recipe: recipeModel)
         }
     }
 }
