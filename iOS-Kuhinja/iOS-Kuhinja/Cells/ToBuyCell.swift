@@ -45,5 +45,3 @@ extension ToBuyCell {
         delegate?.toBuyCell(self, didChangeCheckedState: !checkImage.isHidden)
     }
 }
-
-

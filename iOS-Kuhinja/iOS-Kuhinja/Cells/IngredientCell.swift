@@ -7,9 +7,21 @@
 
 import UIKit
 
+protocol IngredientCellDelegate: AnyObject {
+    func ingredientCell(_ ingredientCell: IngredientCell, didChangeCheckedState isChecked: Bool)
+}
+
 class IngredientCell: UITableViewCell {
 
+    @IBOutlet weak var checkView: UIView!
+    @IBOutlet weak var checkImage: UIImageView!
     @IBOutlet weak var ingredientLabel: UILabel!
+    
+    weak var delegate: IngredientCellDelegate?
+    
+    @IBAction func didTouchCheckButton(_ sender: UIButton) {
+        delegate?.ingredientCell(self, didChangeCheckedState: !checkImage.isHidden)
+    }
 }
 
 //MARK: - LifeCycle
@@ -18,6 +30,7 @@ extension IngredientCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        checkView.roundedCorners(radius: 6)
     }
 }
 

@@ -61,9 +61,17 @@ extension ViewRecipeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let ingredient = recipe?.ingredients[indexPath.row] ?? ""
-        print(ingredient)
         let cell = tableView.dequeueReusableCell(withIdentifier: K.ingredientCell, for: indexPath) as! IngredientCell
         cell.config(ingredient)
+
         return cell
     }
+}
+
+extension ViewRecipeViewController: IngredientCellDelegate {
+    func ingredientCell(_ ingredientCell: IngredientCell, didChangeCheckedState isChecked: Bool) {
+        
+    }
+    
+    
 }

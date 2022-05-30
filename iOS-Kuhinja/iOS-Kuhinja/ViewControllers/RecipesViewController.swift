@@ -65,6 +65,7 @@ extension RecipesViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.recipeCell, for: indexPath) as! RecipeCell
         cell.config(image: recipes[indexPath.row].image.loadImage(), name: recipes[indexPath.row].name, neededTime: recipes[indexPath.row].time)
+
         
         return cell
     }

@@ -17,24 +17,62 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelgfdsgghta dsl;dolsdf;okls fsofsokfs ofo;kfs" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPT-OU-0YI">
-                        <rect key="frame" x="0.0" y="9" width="320" height="42"/>
+                        <rect key="frame" x="50" y="9" width="260" height="42"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYE-sh-gD1">
+                        <rect key="frame" x="8" y="17" width="26" height="26"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="d13-0N-Bzw">
+                                <rect key="frame" x="-1" y="1" width="28" height="24.5"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="APJ-SL-7ZX"/>
+                                    <constraint firstAttribute="width" constant="28" id="IMX-iF-v1S"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgz-7o-RVV">
+                                <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="didTouchCheckButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hvW-Mg-h8A"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.018566293639999999" green="0.5109915733" blue="0.2282391191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="26" id="9j6-pe-26L"/>
+                            <constraint firstAttribute="bottom" secondItem="vgz-7o-RVV" secondAttribute="bottom" id="LII-Pe-pnq"/>
+                            <constraint firstAttribute="trailing" secondItem="vgz-7o-RVV" secondAttribute="trailing" id="Ofl-hS-vbd"/>
+                            <constraint firstAttribute="height" constant="26" id="R5p-By-zYo"/>
+                            <constraint firstItem="d13-0N-Bzw" firstAttribute="centerY" secondItem="YYE-sh-gD1" secondAttribute="centerY" id="iQF-uG-YAu"/>
+                            <constraint firstItem="vgz-7o-RVV" firstAttribute="top" secondItem="YYE-sh-gD1" secondAttribute="top" id="p0w-Ed-zT5"/>
+                            <constraint firstItem="vgz-7o-RVV" firstAttribute="leading" secondItem="YYE-sh-gD1" secondAttribute="leading" id="r7n-N4-xyr"/>
+                            <constraint firstItem="d13-0N-Bzw" firstAttribute="centerX" secondItem="YYE-sh-gD1" secondAttribute="centerX" id="wGd-sI-kmV"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="CPT-OU-0YI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6hK-t9-x2b"/>
-                    <constraint firstItem="CPT-OU-0YI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bgx-Ry-IWH"/>
-                    <constraint firstItem="CPT-OU-0YI" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="d5T-NQ-9W1"/>
-                    <constraint firstItem="CPT-OU-0YI" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.7" id="fIy-5D-oHp"/>
+                    <constraint firstItem="YYE-sh-gD1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6TU-kV-tGY"/>
+                    <constraint firstItem="CPT-OU-0YI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IpL-7n-N9D"/>
+                    <constraint firstItem="CPT-OU-0YI" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.8125" id="PpU-xv-yZ9"/>
+                    <constraint firstItem="CPT-OU-0YI" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.7" id="a7l-gX-rGU"/>
+                    <constraint firstItem="YYE-sh-gD1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="eXP-nc-JU9"/>
+                    <constraint firstItem="CPT-OU-0YI" firstAttribute="leading" secondItem="YYE-sh-gD1" secondAttribute="trailing" constant="16" id="yTz-u6-ZfC"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="checkImage" destination="d13-0N-Bzw" id="37M-hk-xwJ"/>
+                <outlet property="checkView" destination="YYE-sh-gD1" id="6DJ-QI-GOJ"/>
                 <outlet property="ingredientLabel" destination="CPT-OU-0YI" id="uks-bU-7Qa"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="81.696428571428569"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+    </resources>
 </document>
