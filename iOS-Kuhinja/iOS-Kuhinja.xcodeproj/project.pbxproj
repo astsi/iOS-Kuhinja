@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4303E86B39226731B78ACC97 /* Pods_iOS_Kuhinja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5AF0B897AD0D45CE13E0900 /* Pods_iOS_Kuhinja.framework */; };
+		5439E6862844AFB30025A406 /* UITextField+Wiggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5439E6852844AFB30025A406 /* UITextField+Wiggle.swift */; };
 		5449035A283CF91200C1FDA4 /* RecipeNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54490359283CF91200C1FDA4 /* RecipeNetworking.swift */; };
 		5449035E283CFAF900C1FDA4 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5449035D283CFAF900C1FDA4 /* RecipeData.swift */; };
 		546B1F452811BC27005516CC /* ToBuyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1F432811BC27005516CC /* ToBuyCell.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5439E6852844AFB30025A406 /* UITextField+Wiggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Wiggle.swift"; sourceTree = "<group>"; };
 		54490359283CF91200C1FDA4 /* RecipeNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeNetworking.swift; sourceTree = "<group>"; };
 		5449035D283CFAF900C1FDA4 /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
 		546B1F432811BC27005516CC /* ToBuyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBuyCell.swift; sourceTree = "<group>"; };
@@ -129,6 +131,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5439E6842844AF9A0025A406 /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				5439E6852844AFB30025A406 /* UITextField+Wiggle.swift */,
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
 		546B1F422811BBFE005516CC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +185,7 @@
 		5492A7A8281C30A100CC685A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5439E6842844AF9A0025A406 /* UITextField */,
 				54B0392F283D75A300C4A637 /* String */,
 				54FC380B283279D9001CBA62 /* UIColor */,
 				54FC380828323D01001CBA62 /* UIViewController */,
@@ -499,6 +510,7 @@
 				546B1F452811BC27005516CC /* ToBuyCell.swift in Sources */,
 				5492A7AB281C30FB00CC685A /* UIView+CornerRadius.swift in Sources */,
 				547EA474283F80B40007D805 /* JsonData.swift in Sources */,
+				5439E6862844AFB30025A406 /* UITextField+Wiggle.swift in Sources */,
 				54FC7E91280ECB510090B8B0 /* RecipesViewController.swift in Sources */,
 				546D38EF2822CC3F00799D99 /* Comment.swift in Sources */,
 				54FC7E95280ED9190090B8B0 /* AddItemViewController.swift in Sources */,

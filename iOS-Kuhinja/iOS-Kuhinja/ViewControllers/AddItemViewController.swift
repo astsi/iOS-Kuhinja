@@ -118,6 +118,14 @@ extension AddItemViewController {
     }
     
     @IBAction func didTouchSaveButton(_ sender: UIBarButtonItem) {
+        
+        if previewNameLabel.text == nil {
+            nameTextField.layer.borderWidth = 2
+            nameTextField.layer.borderColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
+            nameTextField.wiggle()
+            return
+        }
+                
         let item = ItemToBuy(
                         name: previewNameLabel.text ?? "Default item",
                         amount: Int (quantitySlider.value),
@@ -155,6 +163,9 @@ extension AddItemViewController: UITextFieldDelegate {
         }
         return true
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderWidth = 0
+    }
 }
-
 
