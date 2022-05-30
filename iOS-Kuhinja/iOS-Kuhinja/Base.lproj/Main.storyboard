@@ -108,7 +108,7 @@
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Social Chefs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ml7-n1-Q14">
-                                        <rect key="frame" x="8" y="16" width="187.5" height="39"/>
+                                        <rect key="frame" x="8" y="16" width="187.5" height="32.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -122,6 +122,7 @@
                                     <constraint firstItem="ml7-n1-Q14" firstAttribute="top" secondItem="MNv-41-gkL" secondAttribute="top" constant="16" id="j4w-59-EjM"/>
                                     <constraint firstItem="nnb-l4-YZP" firstAttribute="centerX" secondItem="MNv-41-gkL" secondAttribute="centerX" id="l9k-Uh-SJN"/>
                                     <constraint firstItem="nnb-l4-YZP" firstAttribute="height" secondItem="MNv-41-gkL" secondAttribute="height" multiplier="0.82" id="w8R-bs-oRS"/>
+                                    <constraint firstItem="nnb-l4-YZP" firstAttribute="top" secondItem="ml7-n1-Q14" secondAttribute="bottom" constant="8" id="woH-Z1-FwD"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrD-vM-4bw">
@@ -236,7 +237,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="s18-g6-EcD">
+                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" id="s18-g6-EcD">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </activityIndicatorView>
@@ -502,20 +503,21 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCG-Hc-pN0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="114.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="i.e. Apple" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Baf-qP-f5r">
-                                                        <rect key="frame" x="107" y="0.0" width="275" height="34"/>
+                                                        <rect key="frame" x="130.5" y="0.0" width="251.5" height="34"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no" returnKeyType="done" smartDashesType="no"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="Baf-qP-f5r" firstAttribute="width" secondItem="HLM-kA-J3y" secondAttribute="width" multiplier="0.72" id="Kb0-0M-Ibb"/>
+                                                    <constraint firstItem="uCG-Hc-pN0" firstAttribute="width" secondItem="HLM-kA-J3y" secondAttribute="width" multiplier="0.3" id="CNP-S0-Q6I"/>
+                                                    <constraint firstItem="Baf-qP-f5r" firstAttribute="width" relation="lessThanOrEqual" secondItem="HLM-kA-J3y" secondAttribute="width" multiplier="0.7" id="Kb0-0M-Ibb"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="0qB-hR-ity">
