@@ -41,6 +41,7 @@ extension ToBuyViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         hideTableViewIfNeeded()
+        tableView.reloadData()
     }
 }
 
@@ -91,7 +92,6 @@ extension ToBuyViewController: UITableViewDataSource {
         if let item = itemList?[indexPath.row]{
             fillCell(cell, item)
         }
-        
         cell.delegate = self
         return cell
     }
@@ -146,6 +146,7 @@ extension ToBuyViewController: UITableViewDelegate {
 }
 
 //MARK: - Realm
+
 extension ToBuyViewController {
     
     func addItem(itemToBuy: ItemToBuy) {

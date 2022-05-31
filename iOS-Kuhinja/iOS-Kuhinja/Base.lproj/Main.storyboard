@@ -340,16 +340,13 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bY7-RF-MvO">
-                                                        <rect key="frame" x="197.5" y="26" width="29" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rG6-t7-CHE">
                                                         <rect key="frame" x="242.5" y="21" width="130.5" height="31"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Add To Cart"/>
+                                                        <connections>
+                                                            <action selector="addToCartTouched:" destination="Kz0-2f-eqz" eventType="touchUpInside" id="HRm-Yk-vnx"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -358,14 +355,9 @@
                                                     <constraint firstItem="N84-0K-goq" firstAttribute="width" secondItem="kVb-cd-4N2" secondAttribute="width" multiplier="0.36193" id="BDf-rR-Sop"/>
                                                     <constraint firstItem="N84-0K-goq" firstAttribute="leading" secondItem="kVb-cd-4N2" secondAttribute="leading" constant="8" id="DQk-dt-Khk"/>
                                                     <constraint firstAttribute="trailing" secondItem="rG6-t7-CHE" secondAttribute="trailing" id="KWg-oF-dd0"/>
-                                                    <constraint firstItem="rG6-t7-CHE" firstAttribute="leading" secondItem="bY7-RF-MvO" secondAttribute="trailing" constant="16" id="OVc-a6-n83"/>
                                                     <constraint firstItem="rG6-t7-CHE" firstAttribute="width" secondItem="kVb-cd-4N2" secondAttribute="width" multiplier="0.35" id="dVO-FH-WvC"/>
                                                     <constraint firstItem="rG6-t7-CHE" firstAttribute="centerY" secondItem="kVb-cd-4N2" secondAttribute="centerY" id="gCH-8Q-kYk"/>
-                                                    <constraint firstItem="bY7-RF-MvO" firstAttribute="width" secondItem="kVb-cd-4N2" secondAttribute="width" multiplier="0.077748" id="gO2-rL-JUs"/>
                                                     <constraint firstItem="N84-0K-goq" firstAttribute="height" secondItem="kVb-cd-4N2" secondAttribute="height" multiplier="0.372414" id="jVY-EE-2BU"/>
-                                                    <constraint firstItem="bY7-RF-MvO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="N84-0K-goq" secondAttribute="trailing" constant="24" id="lJB-vX-QkO"/>
-                                                    <constraint firstItem="bY7-RF-MvO" firstAttribute="centerY" secondItem="kVb-cd-4N2" secondAttribute="centerY" id="vZp-8s-ooq"/>
-                                                    <constraint firstItem="bY7-RF-MvO" firstAttribute="height" secondItem="kVb-cd-4N2" secondAttribute="height" multiplier="0.289655" id="zOR-qc-KxQ"/>
                                                 </constraints>
                                             </view>
                                         </subviews>

@@ -8,8 +8,6 @@
 import UIKit
 import RealmSwift
 
-//TODO: Add Constraints, Modify nameTextField
-
 protocol AddItemViewControllerDelegate : AnyObject {
     
     func addItemViewController(_ controller: AddItemViewController, didCreate item: ItemToBuy)
