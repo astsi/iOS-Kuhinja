@@ -34,7 +34,7 @@ extension ToBuyCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        setupFormatter()
         checkView.roundedCorners(radius: 8)
     }
 }
