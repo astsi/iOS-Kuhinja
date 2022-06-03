@@ -25,9 +25,8 @@ extension RecipesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNetworking()
         setupUI()
-        setupTableViewCell()
+        setupNetworking()
     }
 }
 
@@ -36,6 +35,7 @@ extension RecipesViewController {
 extension RecipesViewController {
     func setupUI() {
         setupLayout()
+        setupTableViewCell()
     }
     
     func setupNetworking() {
@@ -66,7 +66,6 @@ extension RecipesViewController : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.recipeCell, for: indexPath) as! RecipeCell
         cell.config(image: recipes[indexPath.row].image.loadImage(), name: recipes[indexPath.row].name, neededTime: recipes[indexPath.row].time)
 
-        
         return cell
     }
 }
@@ -83,7 +82,7 @@ extension RecipesViewController : UICollectionViewDelegate {
 extension RecipesViewController : UICollectionViewDelegateFlowLayout {
         
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = view.bounds.size.width / 2 - 10
+        let size = view.bounds.size.width / 2 - 24
         return CGSize(width: size, height: size)
     }
 }
@@ -104,7 +103,7 @@ extension RecipesViewController {
 
 extension RecipesViewController: RecipeNetworkingDelegate {
     func didUpdateRecipe(_ recipeNetworking: RecipeNetworking, recipe: Recipe) {
-
+        //The f-on isn't used in this class
     }
 
     func didUpdateRecipes(_ recipeNetworking: RecipeNetworking, recipes: [Recipe]) {

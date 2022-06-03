@@ -27,7 +27,6 @@
 		5492A7AF281C338800CC685A /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5492A7AD281C338800CC685A /* RecipeCell.xib */; };
 		54AD1C452811B0F900E4FBD4 /* ItemToBuy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD1C442811B0F900E4FBD4 /* ItemToBuy.swift */; };
 		54B03931283D75BB00C4A637 /* String+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B03930283D75BB00C4A637 /* String+UIImage.swift */; };
-		54B4DB1C28463BF600427249 /* RecipesPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B4DB1B28463BF600427249 /* RecipesPopUpViewController.swift */; };
 		54FC380A28323D54001CBA62 /* UIViewController+PriorityName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC380928323D54001CBA62 /* UIViewController+PriorityName.swift */; };
 		54FC380D283279F2001CBA62 /* UIColor+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC380C283279F2001CBA62 /* UIColor+String.swift */; };
 		54FC7E58280EC2CF0090B8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FC7E57280EC2CF0090B8B0 /* AppDelegate.swift */; };
@@ -82,7 +81,6 @@
 		5492A7AD281C338800CC685A /* RecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
 		54AD1C442811B0F900E4FBD4 /* ItemToBuy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemToBuy.swift; sourceTree = "<group>"; };
 		54B03930283D75BB00C4A637 /* String+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UIImage.swift"; sourceTree = "<group>"; };
-		54B4DB1B28463BF600427249 /* RecipesPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesPopUpViewController.swift; sourceTree = "<group>"; };
 		54FC380928323D54001CBA62 /* UIViewController+PriorityName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+PriorityName.swift"; sourceTree = "<group>"; };
 		54FC380C283279F2001CBA62 /* UIColor+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+String.swift"; sourceTree = "<group>"; };
 		54FC7E54280EC2CF0090B8B0 /* iOS-Kuhinja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Kuhinja.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,7 +293,6 @@
 				54FC7E92280ECB6C0090B8B0 /* ToBuyViewController.swift */,
 				54FC7E94280ED9190090B8B0 /* AddItemViewController.swift */,
 				54FC7E96280ED93B0090B8B0 /* ViewRecipeViewController.swift */,
-				54B4DB1B28463BF600427249 /* RecipesPopUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -515,7 +512,6 @@
 				547EA474283F80B40007D805 /* JsonData.swift in Sources */,
 				5439E6862844AFB30025A406 /* UITextField+Wiggle.swift in Sources */,
 				54FC7E91280ECB510090B8B0 /* RecipesViewController.swift in Sources */,
-				54B4DB1C28463BF600427249 /* RecipesPopUpViewController.swift in Sources */,
 				546D38EF2822CC3F00799D99 /* Comment.swift in Sources */,
 				54FC7E95280ED9190090B8B0 /* AddItemViewController.swift in Sources */,
 				54FC380A28323D54001CBA62 /* UIViewController+PriorityName.swift in Sources */,

@@ -20,14 +20,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQO-59-feO">
                         <rect key="frame" x="0.0" y="205" width="301" height="91"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="recipeCell" text="240 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="J4m-vh-IGv">
-                                <rect key="frame" x="230.5" y="0.0" width="62.5" height="91"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rap-nf-x6n">
+                                <rect key="frame" x="0.0" y="0.0" width="301" height="58"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" showsExpansionTextWhenTruncated="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rap-nf-x6n">
-                                <rect key="frame" x="8" y="5" width="180.5" height="81"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="recipeCell" text="240 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="J4m-vh-IGv">
+                                <rect key="frame" x="0.0" y="63.5" width="150.5" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -35,15 +35,15 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rap-nf-x6n" firstAttribute="width" secondItem="SQO-59-feO" secondAttribute="width" multiplier="0.6" id="PYr-LN-bVk"/>
-                            <constraint firstItem="rap-nf-x6n" firstAttribute="centerY" secondItem="SQO-59-feO" secondAttribute="centerY" id="d4B-rs-J1C"/>
-                            <constraint firstItem="J4m-vh-IGv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rap-nf-x6n" secondAttribute="trailing" constant="16" id="hzh-z5-d8L"/>
-                            <constraint firstItem="J4m-vh-IGv" firstAttribute="centerY" secondItem="SQO-59-feO" secondAttribute="centerY" id="i5O-cN-rYD"/>
-                            <constraint firstItem="J4m-vh-IGv" firstAttribute="width" secondItem="SQO-59-feO" secondAttribute="width" multiplier="0.207641" id="mYh-Gk-RYi"/>
-                            <constraint firstItem="J4m-vh-IGv" firstAttribute="height" secondItem="SQO-59-feO" secondAttribute="height" id="qxE-Ou-3Eo"/>
-                            <constraint firstAttribute="trailing" secondItem="J4m-vh-IGv" secondAttribute="trailing" constant="8" id="syk-WK-Qbz"/>
-                            <constraint firstItem="rap-nf-x6n" firstAttribute="height" secondItem="SQO-59-feO" secondAttribute="height" multiplier="0.89011" id="uXi-UK-ThR"/>
-                            <constraint firstItem="rap-nf-x6n" firstAttribute="leading" secondItem="SQO-59-feO" secondAttribute="leading" constant="8" id="wbB-nv-F0H"/>
+                            <constraint firstItem="J4m-vh-IGv" firstAttribute="leading" secondItem="SQO-59-feO" secondAttribute="leading" id="AVc-GV-ej5"/>
+                            <constraint firstItem="J4m-vh-IGv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="rap-nf-x6n" secondAttribute="bottom" constant="4" id="Cjk-wu-c9r"/>
+                            <constraint firstItem="rap-nf-x6n" firstAttribute="top" secondItem="SQO-59-feO" secondAttribute="top" id="F7O-oe-rif"/>
+                            <constraint firstItem="J4m-vh-IGv" firstAttribute="width" secondItem="SQO-59-feO" secondAttribute="width" multiplier="0.5" id="N1q-n2-dse"/>
+                            <constraint firstItem="rap-nf-x6n" firstAttribute="width" secondItem="SQO-59-feO" secondAttribute="width" id="PLj-pp-o9e"/>
+                            <constraint firstAttribute="bottom" secondItem="J4m-vh-IGv" secondAttribute="bottom" id="SHT-t3-AzJ"/>
+                            <constraint firstItem="rap-nf-x6n" firstAttribute="height" secondItem="SQO-59-feO" secondAttribute="height" multiplier="0.64" id="eEv-fE-4kp"/>
+                            <constraint firstItem="rap-nf-x6n" firstAttribute="leading" secondItem="SQO-59-feO" secondAttribute="leading" id="eqv-fX-Skk"/>
+                            <constraint firstItem="J4m-vh-IGv" firstAttribute="height" secondItem="SQO-59-feO" secondAttribute="height" multiplier="0.3" id="pvw-oB-rVg"/>
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pasta" translatesAutoresizingMaskIntoConstraints="NO" id="gUB-dj-TbN">

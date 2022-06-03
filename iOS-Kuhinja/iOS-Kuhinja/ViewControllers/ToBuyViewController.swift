@@ -7,7 +7,6 @@
 
 import UIKit
 import RealmSwift
-import SwiftUI
 
 class ToBuyViewController: UIViewController {
 
@@ -97,13 +96,12 @@ extension ToBuyViewController: UITableViewDataSource {
     }
         
     func fillCell(_ cell: ToBuyCell,_ item: ItemToBuy) {
-        cell.nameLabel.text = item.name
-        cell.colorView.backgroundColor = UIColor(hexString: item.hexColor)
-        cell.amountLabel.text = String(item.amount)
-        cell.dateLabel.text = formatter.string(from: item.date)
-        cell.importanceLabel.text = displayPriorityTitle(priority: item.priority)
-        cell.importanceLabel.textColor = (item.priority == 2) ? .systemRed : .black
-        cell.checkImage.isHidden = !item.isChecked
+        cell.config(name: item.name ?? "",
+                    importance: item.priority,
+                    date: item.date,
+                    color: item.hexColor,
+                    amount: item.amount,
+                    isChecked: item.isChecked)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

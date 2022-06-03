@@ -78,6 +78,7 @@ class RecipeNetworking {
                                      calories: recipeItem.recipe.calories)
                 recipeModels.append(recipeModel)
             }
+            
             self.delegate?.didUpdateRecipes(self, recipes: recipeModels)
         } else {
             self.delegate?.didUpdateRecipe(self, recipe: recipeModel)

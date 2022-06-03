@@ -86,15 +86,9 @@ extension ViewRecipeViewController: IngredientCellDelegate {
 //MARK: - Actions
 
 extension ViewRecipeViewController {
-    //dozvoljeno jedno dodavanje - kako ostvariti???
-    //ideja 1:
-    //Dodati checkirane iteme u listu i ukoliko se sadrzaj liste izmenio, dodati samo novi sadrzaj
-    //ideja 2:
-    //Pamtiti da li se ranije vec kliknulo na dugme i izbaciti poruku tipa "Are you sure you want to add items to the list again?" - opet treba pamtiti i koji su itemi dodati - uporedjivanje po imenu
-    
+   
     @IBAction func addToCartTouched(_ sender: UIButton) {
         
-        //1. proveri za svaki cell iz tabele da li mu je checkmark hidden
         for ingredient in ingredients {
             if ingredient.isChecked {
                 let item = ItemToBuy(name: ingredient.name,
@@ -114,8 +108,8 @@ extension ViewRecipeViewController {
                 }
             }
         }
-        
-        //5. dodati poruku da su itemi uspesno dodati na to buy listu
+
+        showAlert(notification: "Selected items are successfully added to the shopping list.")
     }
 }
 
@@ -127,5 +121,11 @@ extension ViewRecipeViewController {
         if let i = ingredients.firstIndex(where: {$0.name == ingredientCell.ingredientLabel.text}){
             ingredients[i].isChecked.toggle()
         }
+    }
+    
+    func showAlert(notification: String) {
+        let uialert = UIAlertController(title: "New Notification", message: notification, preferredStyle: UIAlertController.Style.alert)
+        uialert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(uialert, animated: true, completion: nil)
     }
 }
