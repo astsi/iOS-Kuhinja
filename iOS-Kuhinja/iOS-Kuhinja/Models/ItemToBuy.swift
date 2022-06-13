@@ -16,10 +16,10 @@ public class ItemToBuy: Object {
     @objc dynamic var priority: Int
     @objc dynamic var isChecked: Bool = false
     @objc dynamic var hexColor: String    
-    @objc dynamic var _id = UUID().uuidString
+    @objc dynamic var id: String
 
     override public static func primaryKey() -> String? {
-        return "_id"
+        return "id"
     }
         
     override init() {
@@ -28,10 +28,12 @@ public class ItemToBuy: Object {
         self.date = Date()
         self.name = ""
         self.hexColor = "#808080"
+        self.id = UUID().uuidString
         super.init()
+        
     }
     
-    init( name: String, amount: Int, date: Date, hexColor: String, priority: Int, isChecked: Bool){
+    init( name: String, amount: Int, date: Date, hexColor: String, priority: Int, isChecked: Bool, id: String){
         
         self.name = name
         self.amount = amount
@@ -39,6 +41,7 @@ public class ItemToBuy: Object {
         self.hexColor = hexColor
         self.priority = priority
         self.isChecked = isChecked
+        self.id = id
         
         super.init()
     }

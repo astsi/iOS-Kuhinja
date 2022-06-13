@@ -130,7 +130,8 @@ extension AddItemViewController {
                         date: datePicker.date,
                         hexColor: previewColorView.backgroundColor?.toHex() ?? "#ffff00",
                         priority: importanceSegmentControl.selectedSegmentIndex,
-                        isChecked: editedItem?.isChecked ?? false)
+                        isChecked: editedItem?.isChecked ?? false,
+                        id: editedItem?.id ?? UUID().uuidString)
         
         if editedItem == nil {
             delegate?.addItemViewController(self, didCreate: item)

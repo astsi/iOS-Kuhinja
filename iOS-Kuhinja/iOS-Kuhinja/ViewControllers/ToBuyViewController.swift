@@ -169,21 +169,25 @@ extension ToBuyViewController: AddItemViewControllerDelegate {
     
     func editItemViewController(_ controller: AddItemViewController, didEdit item: ItemToBuy) {
         let realm = try! Realm()
-        let objects = realm.objects(ItemToBuy.self).filter { $0._id == item._id}
-        let object = objects[0]
+        let objects = realm.objects(ItemToBuy.self)
         
-        do {
-            try realm.write {
-                object.name = item.name
-                object.amount = item.amount
-                object.hexColor = item.hexColor
-                object.date = item.date
-                object.isChecked = item.isChecked
+        for object in objects {
+            if object.id == item.id {
+                do {
+                    try realm.write {
+                        object.name = item.name
+                        object.priority = item.priority
+                        object.amount = item.amount
+                        object.hexColor = item.hexColor
+                        object.date = item.date
+                        object.isChecked = item.isChecked
+                    }
+                } catch {
+                    print ("Error while editing item: ", error)
+                }
             }
-        } catch {
-            print ("Error while editing item: ", error)
         }
-               
+           
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
     

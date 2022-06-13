@@ -96,7 +96,8 @@ extension ViewRecipeViewController {
                                      date: Date(),
                                      hexColor: "ff0000",
                                      priority: 1,
-                                     isChecked: false)
+                                     isChecked: false,
+                                     id: UUID().uuidString)
 
                 let realm = try! Realm()
                 do {
