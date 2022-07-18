@@ -253,12 +253,12 @@
 		54FC7E56280EC2CF0090B8B0 /* iOS-Kuhinja */ = {
 			isa = PBXGroup;
 			children = (
-				547EA470283F7B7A0007D805 /* ParsingJSON */,
-				5488F59E28367D0E00FEAC3D /* Networking */,
-				547E0254282946A3008046AC /* Models */,
 				5492A7A8281C30A100CC685A /* Extensions */,
+				547E0254282946A3008046AC /* Models */,
 				54FC7E87280EC9E00090B8B0 /* ViewControllers */,
 				546B1F422811BBFE005516CC /* Cells */,
+				5488F59E28367D0E00FEAC3D /* Networking */,
+				547EA470283F7B7A0007D805 /* ParsingJSON */,
 				54FC7E5D280EC2CF0090B8B0 /* Main.storyboard */,
 				54FC7E62280EC2D10090B8B0 /* LaunchScreen.storyboard */,
 				547EA46E283F73EE0007D805 /* Assets.xcassets */,

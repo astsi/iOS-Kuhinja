@@ -56,6 +56,4 @@ extension Recipe: DisplayRecipe {
     var kcal: String {
         String(format: "%.2f", calories)
     }
-    
-    
 }
